@@ -1,15 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControllerScript : MonoBehaviour {
+public class PlayerControllerScript : MonoBehaviour 
+{
+	private Rigidbody2D rb;
+	[SerializeField]
+	private float speed, maxSpeed;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start()
+	{
+		rb = GetComponent<Rigidbody2D> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void FixedUpdate()
+	{
+		float xAxis = Input.GetAxis ("Horizontal");
+		float yAxis = Input.GetAxis ("Vertical");
+
+		Vector2 movement = new Vector2 (xAxis, yAxis);
+
+		rb.velocity = movement.normalized * speed;
+
+		transform.LookAt(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f)));
+
+		//if (rb.velocity.magnitude < maxSpeed)
+		//	rb.AddForce (movement * speed);
 	}
+
 }
