@@ -32,8 +32,8 @@ public class PlayerControllerScript : MonoBehaviour
 			(mouseDirection, transform.TransformDirection(Vector3.up));
 		transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
 
-		if (mouseDirection != transform.right)
-			rb.rotation += 180;
+		//if (mouseDirection != transform.right.normalized)
+		//	rb.rotation += 180;
 
 		
 
