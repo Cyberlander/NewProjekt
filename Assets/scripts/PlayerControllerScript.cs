@@ -1,20 +1,25 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerControllerScript : MonoBehaviour 
 {
 	private Rigidbody2D rb;
 	[SerializeField]
-	private float speed, maxSpeed;
+	private float speed;
+	private LineRenderer lr;
+	[SerializeField]
+	private GameObject muzzle;
+
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D> ();
+		lr = GetComponent<LineRenderer> ();
 	}
 
 	void FixedUpdate()
 	{
-		Vector3 mousePosition = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 10)); 	//Calculates the position of the mouse in WorldSpace (1)
+		Vector3 mousePosition = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs (Camera.main.transform.position.z))); 	//Calculates the position of the mouse in WorldSpace (1)
 		Vector3 mouseDirection = Vector3.Normalize(mousePosition - transform.position);												//Calculates the vector between the mouse and the player object
 
 		Debug.DrawRay (transform.position,mouseDirection, Color.red);																//debuging
@@ -28,16 +33,32 @@ public class PlayerControllerScript : MonoBehaviour
 		rb.velocity = movementDir.normalized * speed;																				//sets the movement of the player
 
 
+		RotateToDirection (mouseDirection);
+		if (Input.GetButtonDown ("Fire1"))
+			Fire (mousePosition);
+
+
+	}
+
+	private void Fire(Vector3 target)
+	{
+		lr.SetPosition (0, muzzle.transform.position);
+		lr.SetPosition (1, target);
+
+	}
+
+	private void RotateToDirection(Vector3 mouseDirection)
+	{
 		Quaternion rotation = Quaternion.LookRotation
 			(mouseDirection, transform.TransformDirection(Vector3.up));
 		transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
-
-		//if (mouseDirection != transform.right.normalized)
-		//	rb.rotation += 180;
-
 		
-
 		
+		if (mouseDirection != transform.right) 
+		{
+			rb.MoveRotation(180);
+		}
+		return;
 	}
 
 }
