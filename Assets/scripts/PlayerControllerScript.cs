@@ -14,17 +14,28 @@ public class PlayerControllerScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float xAxis = Input.GetAxis ("Horizontal");
-		float yAxis = Input.GetAxis ("Vertical");
+		Vector3 mousePosition = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 10)); 	//Calculates the position of the mouse in WorldSpace (1)
+		Vector3 mouseDirection = Vector3.Normalize(mousePosition - transform.position);												//Calculates the vector between the mouse and the player object
 
-		Vector2 movement = new Vector2 (xAxis, yAxis);
+		Debug.DrawRay (transform.position,mouseDirection, Color.red);																//debuging
 
-		rb.velocity = movement.normalized * speed;
+		float xAxis =Input.GetAxis ("Horizontal");
+		float yAxis =Input.GetAxis ("Vertical");
 
-		transform.LookAt(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f)));
+		Vector2 movementDir = new Vector2 (xAxis, yAxis);																				
 
-		//if (rb.velocity.magnitude < maxSpeed)
-		//	rb.AddForce (movement * speed);
+		rb.velocity = movementDir.normalized * speed;																				//sets the movement of the player
+
+		Quaternion rotation = Quaternion.LookRotation
+			(mousePosition - transform.position, transform.TransformDirection(Vector3.up));
+		transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+
+		
+
+		
 	}
 
 }
+
+// (1) Camera.main.ScreenToWorldSpace converts any screenspace position to an worldspace position using the screenspace position and the distance between the camera and the layer
+//		you want to operate in.
