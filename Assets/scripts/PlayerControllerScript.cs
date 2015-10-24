@@ -24,11 +24,16 @@ public class PlayerControllerScript : MonoBehaviour
 
 		Vector2 movementDir = new Vector2 (xAxis, yAxis);																				
 
+
 		rb.velocity = movementDir.normalized * speed;																				//sets the movement of the player
 
+
 		Quaternion rotation = Quaternion.LookRotation
-			(mousePosition - transform.position, transform.TransformDirection(Vector3.up));
+			(mouseDirection, transform.TransformDirection(Vector3.up));
 		transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+
+		if (mouseDirection != transform.right)
+			rb.rotation += 180;
 
 		
 
