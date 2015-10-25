@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\scripts\GameControllerScript.cs" />
+     <Compile Include="Assets\scripts\PeasantScript.cs" />
      <Compile Include="Assets\scripts\PlaceCamera.cs" />
      <Compile Include="Assets\scripts\PlayerControllerScript.cs" />
  <Reference Include="UnityEngine.UI">
