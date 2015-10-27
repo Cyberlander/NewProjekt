@@ -35,13 +35,21 @@ public class PlayerControllerScript : MonoBehaviour
 
 		RotateToDirection (mouseDirection);
 		if (Input.GetButtonDown ("Fire1"))
-			Fire (mousePosition);
+			Fire (mousePosition, mouseDirection);
 
 
 	}
 
-	private void Fire(Vector3 target)
+	private void Fire(Vector3 target, Vector3 targetDir)
 	{
+		RaycastHit2D hit = Physics2D.Raycast(muzzle.transform.position, targetDir);
+
+		if (hit.collider.gameObject.tag.Equals("enemy"))
+		{
+			hit.collider.gameObject.SetActive (false);
+		}
+		
+
 		lr.SetPosition (0, muzzle.transform.position);
 		lr.SetPosition (1, target);
 

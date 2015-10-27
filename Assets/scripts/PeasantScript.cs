@@ -8,10 +8,12 @@ public class PeasantScript : MonoBehaviour
 	[SerializeField]
 	private float speed;
 	private Rigidbody2D rb;
+	private ParticleSystem ps;
 
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D> ();
+		ps = GetComponent<ParticleSystem> ();
 	}
 	
 	void Update () 
@@ -26,5 +28,7 @@ public class PeasantScript : MonoBehaviour
 			rb.MoveRotation(180);
 		}
 		rb.velocity = transform.right * speed;
+		ps.emissionRate = 10 * speed;
+		ps.startLifetime = 3 / speed;
 	}
 }
