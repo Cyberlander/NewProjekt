@@ -207,6 +207,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 12037390, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457412, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
+      propertyPath: firerate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457412, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
+      propertyPath: beamDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457412, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
+      propertyPath: fireRate
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
   m_IsPrefabParent: 0
