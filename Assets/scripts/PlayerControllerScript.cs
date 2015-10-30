@@ -8,12 +8,15 @@ public class PlayerControllerScript : MonoBehaviour
 	[SerializeField]
 	private float speed;
 	[SerializeField]
-	private float fireRate; 				//min 
+	private float fireRate; 
+	[SerializeField]
+	private float flashDuration;
 
 	private LineRenderer lr;
 	private Rigidbody2D rb;
 	private Vector3 mousePosition, mouseDirection;
 	private bool firing;
+	private float lastShotTime;
 
 
 	void Start()
@@ -21,6 +24,7 @@ public class PlayerControllerScript : MonoBehaviour
 		rb = GetComponent<Rigidbody2D> ();
 		lr = GetComponent<LineRenderer> ();
 		firing = false;
+		lastShotTime = Time.time;
 	}
 
 	void FixedUpdate()
@@ -45,9 +49,11 @@ public class PlayerControllerScript : MonoBehaviour
 
 	void Update()
 	{
-		if (!firing && Input.GetButton("Fire1")) 
+
+		if (Input.GetButton("Fire1") && Time.time > (lastShotTime +  fireRate)) 																																					
 		{
 			StartCoroutine (Fire (mousePosition, mouseDirection));
+			lastShotTime = Time.time;
 		}
 	}
 
@@ -59,16 +65,15 @@ public class PlayerControllerScript : MonoBehaviour
 
 		if (hit.collider.gameObject.tag.Equals("enemy"))
 		{
-			hit.collider.gameObject.SetActive (false);
+			hit.collider.gameObject.GetComponent<Enemy>().Die();
 		}
 
 
 		lr.enabled = true;
 		lr.SetPosition (0, muzzle.transform.position);
 		lr.SetPosition (1, target);
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(flashDuration);
 		lr.enabled = false;
-		yield return new WaitForSeconds(Mathf.Clamp(1/fireRate - 0.1f,0,2));
 		firing = false; 
 	}
 	
