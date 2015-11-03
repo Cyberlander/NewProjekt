@@ -4,21 +4,26 @@ using System.Collections;
 public class PeasantScript : MonoBehaviour, Enemy
 {	
 	[SerializeField]
-	private GameObject target;
-	[SerializeField]
 	private float speed;
 	[SerializeField]
 	private SpriteRenderer sprite;
 	[SerializeField]
 	private GameObject deathAnim;
+	[SerializeField]
+	private AudioClip[] clips;
 
 	private Rigidbody2D rb;
 	private ParticleSystem ps;
+	private AudioSource aus;
+	private GameObject target;
+	private ObjectPool op;
 
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		ps = GetComponent<ParticleSystem> ();
+		aus = GetComponent<AudioSource> ();
+		target = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	void Update () 
@@ -36,25 +41,47 @@ public class PeasantScript : MonoBehaviour, Enemy
 		rb.velocity = transform.right * speed;																// lets the GameObjekt move forwards	
 		ps.emissionRate = 10 * speed;																		// dynamic adaption of the Particlesystem's parameters to make the length and look of -->
 		ps.startLifetime = 3 / speed;																		// trail independent from the GameObjects speed
+
+
+		if (Vector3.Distance(target.transform.position, transform.position) < 3 && !aus.isPlaying)
+			Talk ();
 	}
 
 	
 
 	public void Die()
 	{
-		sprite.enabled = false;
-		rb.AddTorque (Random.Range (-1, 1));
-		deathAnim.GetComponent<Animator> ().Play ("peasantDeathAnim");
-
-		StartCoroutine(DisableIn (0.117f));
+		sprite.enabled = false;																				//-
+		ps.Stop ();																							//-
+		ps.Clear ();																						//makes the peasant invisible
+		rb.AddTorque (Random.Range (-1, 1));																//randomizes the death animation																
+		deathAnim.GetComponent<Animator> ().Play ("peasantDeathAnim");										//plays the death animation
+		StartCoroutine(DisableIn(0.2f));
 				
 	}
-
-	IEnumerator DisableIn(float sec)
+	IEnumerator DisableIn(float sec)																		// disables the GameObject after som delay. this was the animation won't be interupted
 	{
 		yield return new WaitForSeconds(sec);
-		gameObject.SetActive(false);
+		sprite.enabled = true;
+		op.Despawn(gameObject);
 	}
+
+	public void SetObjectPool(ObjectPool o)
+	{
+		op = o;
+	}
+	public ObjectPool GetObjectPool()
+	{
+		return op;
+	}
+
+
+	public void Talk()
+	{
+			aus.clip = clips [Random.Range (0, clips.Length)];
+			aus.Play ();
+	}
+
 
 
 }
