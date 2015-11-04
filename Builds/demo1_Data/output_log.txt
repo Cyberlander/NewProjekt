@@ -1,0 +1,27 @@
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 770 (ID=0x1184)
+    Vendor:   NVIDIA
+    VRAM:     1990 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.032 seconds
+desktop: 1920x1080 60Hz; virtual: 2944x1080 at -1024,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 26dc -> priority: 1 

@@ -140,6 +140,10 @@ MonoBehaviour:
   speed: 10
   fireRate: .200000003
   flashDuration: .00999999978
+  clips: []
+  shotgun: {fileID: 0}
+  spawnPool: {fileID: 0}
+  enemy1: {fileID: 0}
 --- !u!120 &12037390
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -200,7 +204,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ba1457c14d2911341bf9258d9d2555d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
@@ -209,7 +213,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 192406}

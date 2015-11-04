@@ -78,12 +78,14 @@ public class PlayerControllerScript : MonoBehaviour
 	IEnumerator Fire(Vector3 target, Vector3 targetDir)																												//we nee a coroutine because you can't
 	{
 		firing = true;																																				//delay in Update
-		RaycastHit2D hit = Physics2D.Raycast(muzzle.transform.position, targetDir);																					//this Raycast determits if the player has hit an GameObject
-		 
-			if (hit.collider.gameObject != null && hit.collider.gameObject.CompareTag ("enemy")) 																	//is the GameObject an enemy?
-			{
+		RaycastHit2D hit = Physics2D.Raycast(muzzle.transform.position, targetDir, 100, 1);																					//this Raycast determits if the player has hit an GameObject
+		 if (hit.collider != null) 
+		{
+			if (hit.collider.gameObject != null && hit.collider.gameObject.CompareTag ("enemy")) 
+			{ 																	//is the GameObject an enemy?
 				hit.collider.gameObject.GetComponent<Enemy> ().Damage (50);
 			}
+		}
 	
 
 		lr.enabled = true;																																			//vfx for the shot

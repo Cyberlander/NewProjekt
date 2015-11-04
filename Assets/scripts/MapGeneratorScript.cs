@@ -14,6 +14,8 @@ public class MapGeneratorScript : MonoBehaviour
 	[SerializeField]
 	private GameObject _deco;
 	[SerializeField]
+	private GameObject _player;
+	[SerializeField]
 	private float _minObstacleDistance;
 	[SerializeField]
 	private int _obstacleCount;
@@ -31,6 +33,7 @@ public class MapGeneratorScript : MonoBehaviour
 		_fenceContainer.transform.SetParent (gameObject.transform);
 		_obstacleContainer.transform.SetParent (gameObject.transform);
 		_existingObstacles = GenerateFence (_fence);
+		_existingObstacles.Add(_player);
 		_existingObstacles = PlaceObstacles (_obstacle, _obstacleCount, _existingObstacles);
 		PlaceObstacles (_deco, _decoCount, _existingObstacles);
 	}
@@ -84,8 +87,8 @@ public class MapGeneratorScript : MonoBehaviour
 	private Vector3 generateObstaclePosition(List<GameObject> existingObstacles)
 	{
 		Vector3 pos = new Vector3 (
-			Random.Range (-MAP_WIDTH / 2, MAP_WIDTH / 2),
-			Random.Range (-MAP_HEIGHT / 2, MAP_HEIGHT / 2),
+			Random.Range (-MAP_WIDTH / 2 +1, MAP_WIDTH / 2 -1),
+			Random.Range (-MAP_HEIGHT / 2 +1, MAP_HEIGHT / 2 - 1),
 			0);
 		foreach (GameObject o in existingObstacles) 
 		{
@@ -95,5 +98,10 @@ public class MapGeneratorScript : MonoBehaviour
 
 
 		return pos;
+	}
+
+	public List<GameObject> GetExistingObstacles()
+	{
+		return _existingObstacles;
 	}
 }

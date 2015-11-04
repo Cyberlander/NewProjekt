@@ -3,8 +3,13 @@ using System.Collections;
 
 public class EnemySpawnerScript : MonoBehaviour 
 {	
+	private const float MAP_WIDTH = 30;
+	private const float MAP_HEIGHT = 20;
+
 	[SerializeField]
 	private ObjectPool op;
+	[SerializeField]
+	private MapGeneratorScript map;
 
 	[SerializeField]
 	private GameObject[] enemyTypes;
@@ -109,11 +114,11 @@ public class Wave
 
 	private Vector3 getSpawnPos()
 	{
-		Vector3 pos = new Vector3 (Random.Range (-9, 9), Random.Range (-4.85f, 4.85f), 0);
+			Vector3 pos = new Vector3 (Random.Range (-MAP_WIDTH/2 + 1, MAP_WIDTH/2 - 1), Random.Range (-MAP_HEIGHT/2 + 1, MAP_HEIGHT/2 - 1), 0);
 
 		while (Vector3.Distance(pos, player.transform.position) < 4) 
 		{
-			pos = new Vector3 (Random.Range (-9, 9), Random.Range (-4.85f, 4.85f), 0);
+				pos = new Vector3 (Random.Range (-MAP_WIDTH/2 + 1, MAP_WIDTH/2 - 1), Random.Range (-MAP_HEIGHT/2 + 1, MAP_HEIGHT/2 - 1), 0);
 		}
 		return pos;	
 	}

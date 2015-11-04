@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   op: {fileID: 840836909}
+  map: {fileID: 0}
   enemyTypes:
   - {fileID: 123732, guid: 1507795d08b89454b9fe3ed0d4249fcb, type: 2}
   - {fileID: 120790, guid: 6330d619efbe7014bb3d804d9fafb54b, type: 2}
@@ -284,7 +285,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418800, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 12037390, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
       propertyPath: m_Enabled
@@ -419,7 +420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &2020061339 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 192406, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
@@ -493,6 +494,120 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!1 &2036277319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2036277323}
+  - 50: {fileID: 2036277321}
+  - 114: {fileID: 2036277320}
+  - 58: {fileID: 2036277326}
+  - 58: {fileID: 2036277325}
+  - 58: {fileID: 2036277324}
+  - 58: {fileID: 2036277322}
+  m_Layer: 8
+  m_Name: CamContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2036277320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036277319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116dbd0664ab328448024e1439b4eecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2020061339}
+--- !u!50 &2036277321
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036277319}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &2036277322
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036277319}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 7.67999983, y: -4.98999977}
+  serializedVersion: 2
+  m_Radius: .800000012
+--- !u!4 &2036277323
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036277319}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2045236696}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!58 &2036277324
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036277319}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -7.63000011, y: -4.98000002}
+  serializedVersion: 2
+  m_Radius: .800000012
+--- !u!58 &2036277325
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036277319}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 7.67000008, y: 5.03000021}
+  serializedVersion: 2
+  m_Radius: .800000012
+--- !u!58 &2036277326
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036277319}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -7.61000013, y: 5.03000021}
+  serializedVersion: 2
+  m_Radius: .800000012
 --- !u!1 &2045236691
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +619,6 @@ GameObject:
   - 20: {fileID: 2045236695}
   - 92: {fileID: 2045236694}
   - 124: {fileID: 2045236693}
-  - 114: {fileID: 2045236692}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -512,18 +626,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2045236692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2045236691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 116dbd0664ab328448024e1439b4eecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2020061339}
 --- !u!124 &2045236693
 Behaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +660,7 @@ Camera:
   far clip plane: 1000
   field of view: 43
   orthographic: 1
-  orthographic size: 7.38999987
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -578,10 +680,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2045236691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -30}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2036277323}
   m_RootOrder: 0
 --- !u!1 &2115369288
 GameObject:
@@ -652,7 +754,7 @@ Transform:
   m_GameObject: {fileID: 2115369288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: .289999992}
-  m_LocalScale: {x: 30, y: 20, z: 1}
+  m_LocalScale: {x: 33, y: 22, z: 1}
   m_Children: []
   m_Father: {fileID: 2117736828}
   m_RootOrder: 0
@@ -699,6 +801,7 @@ MonoBehaviour:
   _obstacle: {fileID: 135152, guid: b59ce0ab869549f45ba86ed7c315a3ea, type: 2}
   _fence: {fileID: 110656, guid: 5dd57b135aadd784f8e06f00b123533a, type: 2}
   _deco: {fileID: 127848, guid: b80b4470a9bf7894d876e43c207e46b5, type: 2}
+  _player: {fileID: 2020061339}
   _minObstacleDistance: 2
   _obstacleCount: 10
-  _decoCount: 20
+  _decoCount: 30
