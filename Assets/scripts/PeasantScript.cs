@@ -17,12 +17,14 @@ public class PeasantScript : MonoBehaviour, Enemy
 	private AudioSource aus;
 	private GameObject target;
 	private ObjectPool op;
+	private int health;
 
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		ps = GetComponent<ParticleSystem> ();
 		aus = GetComponent<AudioSource> ();
+		health = 50;
 		target = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
@@ -47,13 +49,19 @@ public class PeasantScript : MonoBehaviour, Enemy
 			Talk ();
 	}
 
-	
+	public void Damage(int dmg)
+	{
+		health = health - dmg;
+		if (health <= 0)
+			Die ();
+	}
 
-	public void Die()
+	private void Die()
 	{
 		sprite.enabled = false;																				//-
 		ps.Stop ();																							//-
 		ps.Clear ();																						//makes the peasant invisible
+		health = 50;
 		rb.AddTorque (Random.Range (-1, 1));																//randomizes the death animation																
 		deathAnim.GetComponent<Animator> ().Play ("peasantDeathAnim");										//plays the death animation
 		StartCoroutine(DisableIn(0.2f));

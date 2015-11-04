@@ -79,14 +79,12 @@ public class PlayerControllerScript : MonoBehaviour
 	{
 		firing = true;																																				//delay in Update
 		RaycastHit2D hit = Physics2D.Raycast(muzzle.transform.position, targetDir);																					//this Raycast determits if the player has hit an GameObject
-
-		if (hit.collider.gameObject.CompareTag("enemy"))																											//is the GameObject an enemy?
-		{
-			hit.collider.gameObject.GetComponent<Enemy>().Die();
-			if(!aus.isPlaying)
-				Talk ();
-		}
-
+		 
+			if (hit.collider.gameObject != null && hit.collider.gameObject.CompareTag ("enemy")) 																	//is the GameObject an enemy?
+			{
+				hit.collider.gameObject.GetComponent<Enemy> ().Damage (50);
+			}
+	
 
 		lr.enabled = true;																																			//vfx for the shot
 		lr.SetPosition (0, muzzle.transform.position);
@@ -96,10 +94,15 @@ public class PlayerControllerScript : MonoBehaviour
 		firing = false; 
 	}
 
-	void Talk()																																						//plays an random audioclip from clips[]
+	public void Talk()																																						//plays an random audioclip from clips[]
 	{
 		aus.clip = clips [Random.Range (0, clips.Length)];
 		aus.Play ();
+	}
+
+	public bool IsTalking()
+	{
+		return  aus.isPlaying;
 	}
 	
 

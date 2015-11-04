@@ -27,24 +27,27 @@ public class EnemySpawnerScript : MonoBehaviour
 		{
 			if (!currentWave.IsWaveActive()) 
 			{
-				switch(currentWave.GetWaveNr())
-				{
-					case 1:	
+					switch(currentWave.GetWaveNr())
+					{
+						case 1:	
 						
-						currentWave = new Wave (op, waveEnemys, new int[] {3}, 2, player); 
-						break;
-					case 2:
-						currentWave = new Wave (op, waveEnemys, new int[] {6}, 3, player); 
-						break;
-					case 3:
-						waveEnemys = new GameObject[1];
-						waveEnemys[0] = enemyTypes[1];
-						currentWave = new Wave (op, waveEnemys, new int[] {1}, 4, player);
-						break;
-					case 4:
-						currentWave = new Wave (op, waveEnemys, new int[] {3}, 5, player); 
-						break;
-				}
+							currentWave = new Wave (op, waveEnemys, new int[] {3}, 2, player); 
+							break;
+						case 2:
+							currentWave = new Wave (op, waveEnemys, new int[] {6}, 3, player); 
+							break;
+						case 3:
+							waveEnemys = new GameObject[1];
+							waveEnemys[0] = enemyTypes[1];
+							currentWave = new Wave (op, waveEnemys, new int[] {1}, 4, player);
+							break;
+						case 4:
+							currentWave = new Wave (op, waveEnemys, new int[] {3}, 5, player); 
+							break;
+						default:
+							Debug.Log ("THIS WAS LAST WAVE. STOP PLAY NOW!");
+							break;
+					}
 			
 				
 			}
@@ -58,6 +61,7 @@ public class Wave
 	private GameObject player;
 	private int[] enemyCount;
 	private int waveNr;
+	private bool isActive;
 
 	public Wave(ObjectPool o, GameObject[] enemys, int[] enemyAmount, int waveNo, GameObject p)
 	{
@@ -66,14 +70,25 @@ public class Wave
 		enemyCount = enemyAmount;
 		waveNr = waveNo;
 		player = p;
+		isActive = true;
 		SpawnWave ();
 	}
 
 	public bool IsWaveActive()
 	{
-		if (op.GetSpawnedObjectCount() > 0)
+		if (op.GetSpawnedObjectCount () > 0)
+				return true;
+		else if (isActive) 
+		{
+			player.GetComponent<PlayerControllerScript> ().Talk ();
+			isActive = false;
 			return true;
-		return false;
+		} 
+		else if (!isActive && !player.GetComponent<PlayerControllerScript> ().IsTalking ()) 
+			return false;
+		else
+			return true;
+
 	}
 
 	public int GetWaveNr()

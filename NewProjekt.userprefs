@@ -1,14 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\EnemySpawnerScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\CamFollowPlayer.cs">
     <Files>
-      <File FileName="Assets\scripts\EnemySpawnerScript.cs" Line="45" Column="74" />
-      <File FileName="Assets\scripts\PlayerControllerScript.cs" Line="74" Column="4" />
-      <File FileName="Assets\scripts\fatPeasantScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\PlayerControllerScript.cs" Line="48" Column="154" />
+      <File FileName="Assets\scripts\EnemyInterface.cs" Line="6" Column="21" />
+      <File FileName="Assets\scripts\EnemySpawnerScript.cs" Line="49" Column="8" />
+      <File FileName="Assets\scripts\fatPeasantScript.cs" Line="58" Column="16" />
       <File FileName="Assets\scripts\PeasantScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\EnemyInterface.cs" Line="1" Column="1" />
       <File FileName="Assets\scripts\GameControllerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\ObjectPool.cs" Line="50" Column="24" />
+      <File FileName="Assets\scripts\ObjectPool.cs" Line="1" Column="1" />
+      <File FileName="Assets\scripts\CamFollowPlayer.cs" Line="25" Column="84" />
+      <File FileName="Assets\scripts\MapGeneratorScript.cs" Line="8" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

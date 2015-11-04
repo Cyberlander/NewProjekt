@@ -16,12 +16,14 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 	private AudioSource aus;
 	private GameObject target;
 	private ObjectPool op;
+	private int health;
 	
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		aus = GetComponent<AudioSource> ();
 		target = GameObject.FindGameObjectWithTag ("Player");
+		health = 100;
 	}
 	
 	void Update () 
@@ -42,11 +44,18 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 			Talk ();
 	}
 	
+
+	public void Damage(int dmg)
+	{
+		health = health - dmg;
+		if (health <= 0)
+			Die ();
+	}
 	
-	
-	public void Die()
+	private void Die()
 	{
 		sprite.enabled = false;																				//-
+		health = 100;
 		rb.AddTorque (Random.Range (-1, 1));																//randomizes the death animation																
 		deathAnim.GetComponent<Animator> ().Play ("peasantDeathAnim");										//plays the death animation
 		StartCoroutine(DisableIn(0.2f));
