@@ -28,16 +28,7 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 	
 	void Update () 
 	{
-		Vector3 dir = (target.transform.position - transform.position).normalized;							// calculates the Vector pointing from this GameObject towards the target
-		Quaternion rotation = Quaternion.LookRotation
-			(target.transform.position - transform.position, transform.TransformDirection(Vector3.up));		// creates a quaternion which describes the rotation needed make the GameObjekt face the direction -->
-		// the Vector dir is pointing
-		transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);									// applies the rotation
-		
-		if (dir != transform.right) 																		// fixes the bug which makes the GamObject flip directions, pointing away from the target
-		{
-			rb.MoveRotation(180);
-		}
+        transform.rotation = FaceObject(transform.position, target.transform.position, FacingDirection.RIGHT);
 		rb.velocity = transform.right * speed;																// lets the GameObjekt move forwards	
 			
 		if (Vector3.Distance(target.transform.position, transform.position) < 3 && !aus.isPlaying)
@@ -83,7 +74,20 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 		aus.clip = clips [Random.Range (0, clips.Length)];
 		aus.Play ();
 	}
-	
-	
-	
+
+    public enum FacingDirection
+    {
+        UP = 270,
+        DOWN = 90,
+        LEFT = 180,
+        RIGHT = 0
+    }
+
+    public static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
+    {
+        Vector2 direction = targetPosition - startingPosition;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle -= (float)facing;
+        return Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 }

@@ -56,10 +56,10 @@ public class PlayerControllerScript : MonoBehaviour
 		Vector2 movementDir = new Vector2 (xAxis, yAxis);																				
 
 
-		rb.velocity = movementDir.normalized * speed;																												//sets the movement of the player
+		rb.velocity = movementDir.normalized * speed;                                                                                                               //sets the movement of the player
 
 
-		RotateToDirection (mouseDirection);
+        transform.rotation = FaceObject(transform.position, mousePosition, FacingDirection.RIGHT);
 
 	}
 
@@ -106,21 +106,22 @@ public class PlayerControllerScript : MonoBehaviour
 	{
 		return  aus.isPlaying;
 	}
-	
 
-	private void RotateToDirection(Vector3 mouseDirection)
-	{
-		Quaternion rotation = Quaternion.LookRotation
-			(mouseDirection, transform.TransformDirection(Vector3.up));
-		transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
-		
-		
-		if (mouseDirection != transform.right) 
-		{
-			rb.MoveRotation(180);
-		}
-		return;
-	}
+     public enum FacingDirection
+    {
+        UP = 270,
+        DOWN = 90,
+        LEFT = 180,
+        RIGHT = 0
+    }
+
+    public static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
+    {
+        Vector2 direction = targetPosition - startingPosition;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle -= (float)facing;
+        return Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 
 }
 
