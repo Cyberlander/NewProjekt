@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{89898A79-AB80-B630-1096-8F4241C5C83F}") = "NewProjekt", "Assembly-CSharp.csproj", "{7AB53DEA-D23E-00B1-D2BA-60CB6623236E}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewProjekt.CSharp", "NewProjekt.CSharp.csproj", "{65CE269D-CA4C-4AD3-EC0C-B22E39969B7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,32 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7AB53DEA-D23E-00B1-D2BA-60CB6623236E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7AB53DEA-D23E-00B1-D2BA-60CB6623236E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7AB53DEA-D23E-00B1-D2BA-60CB6623236E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7AB53DEA-D23E-00B1-D2BA-60CB6623236E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CE269D-CA4C-4AD3-EC0C-B22E39969B7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CE269D-CA4C-4AD3-EC0C-B22E39969B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CE269D-CA4C-4AD3-EC0C-B22E39969B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CE269D-CA4C-4AD3-EC0C-B22E39969B7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																												GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
-		Policies = $0
-		$0.TextStylePolicy = $1
-		$1.inheritsSet = null
-		$1.scope = text/x-csharp
-		$0.CSharpFormattingPolicy = $2
-		$2.inheritsSet = Mono
-		$2.inheritsScope = text/x-csharp
-		$2.scope = text/x-csharp
-		$0.TextStylePolicy = $3
-		$3.FileWidth = 120
-		$3.TabWidth = 4
-		$3.IndentWidth = 4
-		$3.EolMarker = Unix
-		$3.inheritsSet = Mono
-		$3.inheritsScope = text/plain
-		$3.scope = text/plain
-	EndGlobalSection
-
 EndGlobal

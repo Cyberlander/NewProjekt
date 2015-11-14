@@ -1,35 +1,58 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class ObjectPool : MonoBehaviour 
 {	
-	private List<GameObject> spawned;
-	private List<GameObject> stash;
+	private List<GameObject> _spawned;
+	private List<GameObject> _stash;
 
+    [SerializeField]
+    private GameObject[] _fillTypes;
 
-
+    [SerializeField]
+    private int[] _fillCount;
 
 	public GameObject Spawn (Vector3 pos, GameObject type)
 	{
-		GameObject o = stash.Find (e => e.GetComponent<Enemy> ().GetType () == type.GetComponent<Enemy> ().GetType ());
+		GameObject o = _stash.Find (e => e.GetComponent<Enemy> ().GetType () == type.GetComponent<Enemy> ().GetType ());
 
 		
 		if (o == null) 
 		{
-			GameObject fresh = Instantiate (type);
-			fresh.GetComponent<Enemy>().SetObjectPool(this);
-			stash.Add(fresh);
-			fresh.transform.parent = gameObject.transform;
-			o =fresh;
+			o = CreateNewElement(type);
 		} 
 
-		spawned.Add (o);
-		stash.Remove(o);
+		_spawned.Add (o);
+		_stash.Remove(o);
 		o.SetActive (gameObject);
 		o.transform.position = pos;
 		return  o;
 	}
+
+    private GameObject CreateNewElement(GameObject type)
+    {
+        GameObject fresh = Instantiate(type);
+        fresh.GetComponent<Enemy>().SetObjectPool(this);
+        _stash.Add(fresh);
+        fresh.transform.parent = gameObject.transform;
+        fresh.SetActive(false);
+        return fresh;
+    }
+
+
+    private void FillObjectPool(GameObject[] types, int[] count)
+    {
+        for(int i = 0; i < types.Length; i++)
+        {
+            for(int n = 1; n <= count[i]; n++)
+            {
+                CreateNewElement(types[i]);
+            }
+        }
+    }
+    
 
 
 	public void Despawn(GameObject obj)
@@ -39,22 +62,21 @@ public class ObjectPool : MonoBehaviour
 			Debug.Log ("ObjectPool: ERROR! No Object to Despawn");
 			return;
 		}
-		spawned.Remove (obj);
-		stash.Add (obj);
+		_spawned.Remove (obj);
+		_stash.Add (obj);
 		obj.transform.parent = gameObject.transform;
 		obj.SetActive (false);
 	}
 
 	public int GetSpawnedObjectCount()
 	{
-		return spawned.Count;
+		return _spawned.Count;
 	}
 
 	void Start()
 	{
-		spawned = new List<GameObject>();
-		stash = new List<GameObject>();
+		_spawned = new List<GameObject>();
+		_stash = new List<GameObject>();
+        this.FillObjectPool(_fillTypes, _fillCount);
 	}
-
-
 }

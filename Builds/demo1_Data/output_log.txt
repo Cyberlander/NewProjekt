@@ -16,7 +16,7 @@ Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Net
 Loading D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading D:\unity\NewProjekt\Builds\demo1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.032 seconds
+- Completed reload, in  0.104 seconds
 desktop: 1920x1080 60Hz; virtual: 2944x1080 at -1024,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,4 +24,4 @@ desktop: 1920x1080 60Hz; virtual: 2944x1080 at -1024,0
 Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\unity\NewProjekt\Builds\demo1_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 26dc -> priority: 1 
+  Thread -> id: ab8 -> priority: 1 

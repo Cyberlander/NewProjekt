@@ -15,7 +15,7 @@ public class CamFollowPlayer : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D> ();
-
+		transform.localScale = new Vector3 (Camera.main.aspect, 1, 1); 
 	}
 
 	void Update () 
