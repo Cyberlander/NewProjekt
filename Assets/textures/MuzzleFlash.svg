@@ -283,9 +283,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="56.950195"
-     inkscape:cy="391.90055"
+     inkscape:zoom="0.63096147"
+     inkscape:cx="148.81925"
+     inkscape:cy="313.91087"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -316,22 +316,30 @@
        d="m 77.774261,390.5897 c 15.163083,-8.83526 58.529519,-12.29253 58.332599,-11.11098 -17.05951,2.6278 -19.8796,1.57206 -30.61773,10.76677 29.13339,-8.65865 46.97286,1.66309 76.10626,0.75101 -20.08353,2.20116 -40.07585,2.84101 -55.45615,9.06255 69.02704,-1.16097 103.09701,4.87343 151.23293,8.35493 -48.11677,6.77788 -100.20244,13.83983 -148.20967,12.7309 7.74693,5.53648 17.27307,6.62494 26.22006,9.16125 -18.29946,-1.05326 -37.777,0.42575 -52.40646,-8.51617 4.18551,5.11248 8.15088,10.35703 15.50866,13.56617 -0.45859,2.97164 -31.765274,-8.91604 -40.710499,-14.21125 -8.945225,-5.29523 -15.163081,-21.7199 0,-30.55518 z"
        id="path4684"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="zccccccccczz" />
+       sodipodi:nodetypes="zccccccccczz"
+       inkscape:export-xdpi="95.419449"
+       inkscape:export-ydpi="95.419449" />
     <path
        sodipodi:nodetypes="zccccccccczz"
        inkscape:connector-curvature="0"
        id="path4686"
        d="m 407.05792,380.85971 c 22.12151,-12.88981 85.38903,-17.93364 85.10175,-16.20986 -24.88823,3.83371 -29.00246,2.29347 -44.66838,15.70768 42.50287,-12.63214 68.52897,2.4263 111.03182,1.09566 -29.29996,3.21127 -58.46686,4.14476 -80.90526,13.2214 100.70392,-1.69373 150.40879,7.10988 220.63454,12.18906 -70.19783,9.88827 -146.18589,20.19099 -216.2239,18.57318 11.30204,8.0772 25.19976,9.66517 38.25259,13.36539 -26.6972,-1.53659 -55.11307,0.62114 -76.45608,-12.42429 6.10627,7.45863 11.89138,15.10994 22.62568,19.79177 -0.66905,4.33533 -46.34253,-13.00767 -59.39276,-20.73287 -13.05027,-7.72523 -22.12151,-31.68728 0,-44.57712 z"
-       style="fill:#ffffc7;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       style="fill:#ffffc7;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-xdpi="95.419449"
+       inkscape:export-ydpi="95.419449" />
     <rect
        style="opacity:0;fill:#fffdf0;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.17420402;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4696"
        width="72.588715"
        height="52.791794"
        x="802.771"
-       y="464.67773" />
+       y="464.67773"
+       inkscape:export-xdpi="95.419449"
+       inkscape:export-ydpi="95.419449" />
     <g
-       id="g4820">
+       id="g4820"
+       inkscape:export-xdpi="95.419449"
+       inkscape:export-ydpi="95.419449">
       <path
          sodipodi:nodetypes="zccccccccczz"
          inkscape:connector-curvature="0"
@@ -361,7 +369,9 @@
          style="opacity:1;fill:url(#linearGradient4712);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       id="g4826">
+       id="g4826"
+       inkscape:export-xdpi="95.419449"
+       inkscape:export-ydpi="95.419449">
       <ellipse
          style="opacity:1;fill:url(#linearGradient4732);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="ellipse4726"
@@ -399,7 +409,9 @@
          style="opacity:1;fill:url(#linearGradient4744);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       id="g4833">
+       id="g4833"
+       inkscape:export-xdpi="95.419449"
+       inkscape:export-ydpi="95.419449">
       <ellipse
          ry="31.410692"
          rx="33.57695"
@@ -451,7 +463,9 @@
          style="opacity:1;fill:url(#linearGradient4772);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <g
-       id="g4842">
+       id="g4842"
+       inkscape:export-xdpi="95.419449"
+       inkscape:export-ydpi="95.419449">
       <ellipse
          style="opacity:0.8;fill:url(#linearGradient4806);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="ellipse4792"

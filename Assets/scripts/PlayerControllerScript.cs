@@ -23,10 +23,12 @@ public class PlayerControllerScript : MonoBehaviour
 	[SerializeField]
 	private GameObject enemy1;
 
+    [SerializeField]
+    LayerMask canHit = -1;
 
 
 
-	private LineRenderer lr;
+
 	private Rigidbody2D rb;
 	private Vector3 mousePosition, mouseDirection;
 	private bool firing;
@@ -38,7 +40,6 @@ public class PlayerControllerScript : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D> ();
-		lr = GetComponent<LineRenderer> ();
 		aus = GetComponent<AudioSource> ();
 		shotgunAus = muzzle.GetComponent<AudioSource> ();
 		firing = false;
@@ -81,8 +82,9 @@ public class PlayerControllerScript : MonoBehaviour
 	IEnumerator Fire(Vector3 target, Vector3 targetDir)																												//we nee a coroutine because you can't
 	{
 		firing = true;																																				//delay in Update
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir);																					//this Raycast determits if the player has hit an GameObject
-		 if (hit.collider != null) 
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, 100, canHit);                                                                                   //this Raycast determits if the player has hit an GameObject
+        Debug.DrawLine(transform.position, hit.point, Color.red, 1.5f);
+        if (hit.collider != null) 
 		{
             if (hit.collider.gameObject.CompareTag("enemy"))
             {                                                                   //is the GameObject an enemy?
@@ -91,6 +93,10 @@ public class PlayerControllerScript : MonoBehaviour
             else if (hit.collider.gameObject.CompareTag("obstacle"))
             {
                 SpawnSparks(hit.point);
+            }
+            else
+            {
+                Debug.Log("Unexpected target was hit. Expect police investigations. We will take no responsibility.");
             }
 		}
 

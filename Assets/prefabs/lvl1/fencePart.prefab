@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 459696}
   - 212: {fileID: 21217956}
-  - 61: {fileID: 6182064}
+  - 68: {fileID: 6822674}
   m_Layer: 9
   m_Name: fencePart
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -29,8 +29,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6182064
-BoxCollider2D:
+--- !u!68 &6822674
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -39,9 +39,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .0871877745, y: 2.4896183}
-  serializedVersion: 2
-  m_Size: {x: 1.25732362, y: 5.01960754}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: .075327754, y: -.493345857}
+  - {x: .0117224455, y: 5.28995037}
 --- !u!212 &21217956
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -82,6 +83,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
