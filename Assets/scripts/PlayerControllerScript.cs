@@ -5,7 +5,9 @@ public class PlayerControllerScript : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject muzzle;
-	[SerializeField]
+    [SerializeField]
+    private GameObject sparks;
+    [SerializeField]
 	private float speed;
 	[SerializeField]
 	private float fireRate; 
@@ -41,6 +43,7 @@ public class PlayerControllerScript : MonoBehaviour
 		shotgunAus = muzzle.GetComponent<AudioSource> ();
 		firing = false;
 		lastShotTime = Time.time;
+        sparks = Instantiate(sparks);
 	}
 
 	void FixedUpdate()
@@ -78,23 +81,38 @@ public class PlayerControllerScript : MonoBehaviour
 	IEnumerator Fire(Vector3 target, Vector3 targetDir)																												//we nee a coroutine because you can't
 	{
 		firing = true;																																				//delay in Update
-		RaycastHit2D hit = Physics2D.Raycast(muzzle.transform.position, targetDir, 100, 1);																					//this Raycast determits if the player has hit an GameObject
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir);																					//this Raycast determits if the player has hit an GameObject
 		 if (hit.collider != null) 
 		{
-			if (hit.collider.gameObject != null && hit.collider.gameObject.CompareTag ("enemy")) 
-			{ 																	//is the GameObject an enemy?
-				hit.collider.gameObject.GetComponent<Enemy> ().Damage (50);
-			}
+            if (hit.collider.gameObject.CompareTag("enemy"))
+            {                                                                   //is the GameObject an enemy?
+                hit.collider.gameObject.GetComponent<Enemy>().Damage(50);
+            }
+            else if (hit.collider.gameObject.CompareTag("obstacle"))
+            {
+                SpawnSparks(hit.point);
+            }
 		}
-	
 
-		lr.enabled = true;																																			//vfx for the shot
-		lr.SetPosition (0, muzzle.transform.position);
-		lr.SetPosition (1, target);
-		yield return new WaitForSeconds(flashDuration);
-		lr.enabled = false;
+
+        MuzzleFlash();
+        yield return new WaitForSeconds(flashDuration);
 		firing = false; 
 	}
+
+
+    private void SpawnSparks(Vector2 pos)
+    {
+        sparks.transform.position = pos;
+        sparks.transform.rotation = transform.rotation;
+        sparks.GetComponentInChildren<ParticleSystem>().Play();
+    }
+
+
+    private void MuzzleFlash()
+    {
+        muzzle.GetComponent<Animator>().Play("MuzzleFlash");
+    }
 
 	public void Talk()																																						//plays an random audioclip from clips[]
 	{
@@ -107,7 +125,7 @@ public class PlayerControllerScript : MonoBehaviour
 		return  aus.isPlaying;
 	}
 
-     public enum FacingDirection
+     private enum FacingDirection
     {
         UP = 270,
         DOWN = 90,
@@ -115,7 +133,7 @@ public class PlayerControllerScript : MonoBehaviour
         RIGHT = 0
     }
 
-    public static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
+    private static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
     {
         Vector2 direction = targetPosition - startingPosition;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

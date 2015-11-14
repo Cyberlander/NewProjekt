@@ -55,7 +55,8 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 	IEnumerator DisableIn(float sec)																		// disables the GameObject after som delay. this was the animation won't be interupted
 	{
 		yield return new WaitForSeconds(sec);
-		sprite.enabled = true;
+        deathAnim.GetComponent<SpriteRenderer>().sprite = null;
+        sprite.enabled = true;
 		op.Despawn(gameObject);
 	}
 	
@@ -75,7 +76,7 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 		aus.Play ();
 	}
 
-    public enum FacingDirection
+    private enum FacingDirection
     {
         UP = 270,
         DOWN = 90,
@@ -83,7 +84,7 @@ public class fatPeasantScript : MonoBehaviour, Enemy
         RIGHT = 0
     }
 
-    public static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
+    private static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
     {
         Vector2 direction = targetPosition - startingPosition;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

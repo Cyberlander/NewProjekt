@@ -27,6 +27,8 @@ public class PeasantScript : MonoBehaviour, Enemy
 		health = 50;
 		target = GameObject.FindGameObjectWithTag ("Player");
 	}
+
+
 	
 	void Update () 
 	{
@@ -63,6 +65,7 @@ public class PeasantScript : MonoBehaviour, Enemy
 	{
 		yield return new WaitForSeconds(sec);
 		sprite.enabled = true;
+        deathAnim.GetComponent<SpriteRenderer>().sprite = null;
 		op.Despawn(gameObject);
 	}
 
@@ -82,7 +85,7 @@ public class PeasantScript : MonoBehaviour, Enemy
 			aus.Play ();
 	}
 
-    public enum FacingDirection
+    private enum FacingDirection
     {
         UP = 270,
         DOWN = 90,
@@ -90,7 +93,7 @@ public class PeasantScript : MonoBehaviour, Enemy
         RIGHT = 0
     }
 
-    public static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
+    private static Quaternion FaceObject(Vector2 startingPosition, Vector2 targetPosition, FacingDirection facing)
     {
         Vector2 direction = targetPosition - startingPosition;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
