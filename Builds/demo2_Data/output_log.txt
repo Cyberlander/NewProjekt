@@ -15,7 +15,7 @@ Loading D:\unity\NewProjekt\Builds\demo2_Data\Managed\UnityEngine.UI.dll into Un
 Platform assembly: D:\unity\NewProjekt\Builds\demo2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading D:\unity\NewProjekt\Builds\demo2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: D:\unity\NewProjekt\Builds\demo2_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.031 seconds
+- Completed reload, in  0.032 seconds
 desktop: 1920x1080 60Hz; virtual: 2944x1080 at -1024,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -26,14 +26,26 @@ GI: material does not have Meta pass, and could not find default material. Objec
 GI: material does not have Meta pass, and could not find default material. Object will not be affecting GI.
 GI: material does not have Meta pass, and could not find default material. Object will not be affecting GI.
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: bcc -> priority: 1 
+  Thread -> id: b8c -> priority: 1 
+THIS WAS LAST WAVE. RESTARTING
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+THIS WAS LAST WAVE. RESTARTING
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+THIS WAS LAST WAVE. RESTARTING
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
 THIS WAS LAST WAVE. RESTARTING
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.764527 ms
+UnloadTime: 0.760313 ms
 
 Unloading 125 unused Assets to reduce memory usage. Loaded Objects now: 184.
-Total: 0.233572 ms (FindLiveObjects: 0.008126 ms CreateObjectMapping: 0.010835 ms MarkObjects: 0.077656 ms  DeleteObjects: 0.136651 ms)
+Total: 0.255243 ms (FindLiveObjects: 0.011136 ms CreateObjectMapping: 0.011437 ms MarkObjects: 0.091201 ms  DeleteObjects: 0.141166 ms)
 

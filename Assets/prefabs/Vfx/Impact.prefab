@@ -8,8 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 487426}
+  - 114: {fileID: 11450316}
   m_Layer: 0
-  m_Name: Sparks
+  m_Name: Impact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,6 +58,17 @@ Transform:
   - {fileID: 465418}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11450316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5c3fe1ce296e4468c47f1c0b17bdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &19870398
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -69,7 +81,7 @@ ParticleSystem:
   randomSeed: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
     enabled: 1
@@ -442,7 +454,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 2847587002
+          rgba: 1538964154
         key1:
           serializedVersion: 2
           rgba: 12237498
@@ -1308,7 +1320,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.key0.rgba
-      value: 2847587002
+      value: 1538964154
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: InitialModule.startColor.maxColor.rgba
@@ -1317,6 +1329,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

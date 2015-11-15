@@ -991,7 +991,7 @@ ParticleSystem:
           rgba: 203
         key1:
           serializedVersion: 2
-          rgba: 4278190283
+          rgba: 2214592715
         key2:
           serializedVersion: 2
           rgba: 0
@@ -1153,6 +1153,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorBySpeedModule.gradient.maxGradient.key1.rgba
+      value: 2214592715
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

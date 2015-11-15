@@ -4,21 +4,16 @@ using System.Collections;
 public class PlayerControllerScript : MonoBehaviour 
 {
 	[SerializeField]
-	private GameObject muzzle;
+	private GameObject _muzzle;
     [SerializeField]
-    private float baseSpread;
+    private GameObject _impact;
     [SerializeField]
-    private GameObject sparks;
-    [SerializeField]
-	private float baseSpeed;
-	[SerializeField]
-	private float fireRate; 
-	[SerializeField]
-	private float flashDuration;
+	private float _baseSpeed;	
 	[SerializeField]
 	private AudioClip[] clips;
-	[SerializeField]
-	private AudioClip shotgun;
+    [SerializeField]
+    private WeaponObject _weapon;
+
 
 	[SerializeField]
 	private ObjectPool spawnPool;
@@ -45,12 +40,11 @@ public class PlayerControllerScript : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		aus = GetComponent<AudioSource> ();
-		shotgunAus = muzzle.GetComponent<AudioSource> ();
+		shotgunAus = _muzzle.GetComponent<AudioSource> ();
         lr = GetComponent<LineRenderer>();
 		lastShotTime = Time.time;
-        sparks = Instantiate(sparks);
-        spread = baseSpread;
-        speed = baseSpeed;
+        spread = _weapon._spread;
+        speed = _baseSpeed;
 	}
 
 	void FixedUpdate()
@@ -79,14 +73,24 @@ public class PlayerControllerScript : MonoBehaviour
 
         CalculateAimIndicator();
 
-        if (Input.GetButton("Fire1") && Time.time > (lastShotTime + fireRate))
+        if (Input.GetButton("Fire1") && Time.time > (lastShotTime + _weapon._firerate))
         {
-			shotgunAus.clip = shotgun;
-			shotgunAus.Play ();
-			Fire (mousePosition, mouseDirection, spread);
+            ShootWeapon();
 			lastShotTime = Time.time;
-            spread = baseSpread;
+            
         }
+    }
+
+
+    void ShootWeapon()
+    {
+        shotgunAus.clip = _weapon._shotSound;
+        shotgunAus.Play();
+        for (int i = 0; i < _weapon._projectileCount; i++)
+        {
+            Fire(mousePosition, mouseDirection, spread, _weapon._dmg);
+        }
+        CalculateSpread(_weapon._shootSpread);
     }
 
     
@@ -117,17 +121,20 @@ public class PlayerControllerScript : MonoBehaviour
 
         if (Input.GetButton("Fire2"))
         {
-            speed = baseSpeed / 2;
+            speed = _baseSpeed / 2;
             if (spread >= 2f)
                 spread = spread - (3.5f * Time.deltaTime);
         }
-        else
+        else if (!Input.GetButton("Fire1"))
         {
-            spread = baseSpread;
-            speed = baseSpeed;
+            spread = _weapon._spread;
+            speed = _baseSpeed;
         }
-            
+    }
 
+    void CalculateSpread(float addSpread)
+    {
+        spread += addSpread;
     }
 
 
@@ -197,7 +204,7 @@ public class PlayerControllerScript : MonoBehaviour
     }
 
 
-	void Fire(Vector3 target, Vector3 targetDir, float spread)																												//we nee a coroutine because you can't
+	void Fire(Vector3 target, Vector3 targetDir, float spread, int dmg)																												//we nee a coroutine because you can't
 	{																																			//delay in Update
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, CalculateSpreadVector(targetDir, spread), 100, canHit);                                                                                   //this Raycast determits if the player has hit an GameObject
         Debug.DrawLine(transform.position, hit.point, Color.red, 1.5f);
@@ -205,11 +212,11 @@ public class PlayerControllerScript : MonoBehaviour
 		{
             if (hit.collider.gameObject.CompareTag("enemy"))
             {                                                                   //is the GameObject an enemy?
-                hit.collider.gameObject.GetComponent<Enemy>().Damage(50, hit.point);
+                hit.collider.gameObject.GetComponent<Enemy>().Damage(dmg, hit.point);
             }
             else if (hit.collider.gameObject.CompareTag("obstacle"))
             {
-                SpawnSparks(hit.point);
+                SpawnImpact(hit.point);
             }
             else
             {
@@ -222,17 +229,16 @@ public class PlayerControllerScript : MonoBehaviour
 	}
 
 
-    private void SpawnSparks(Vector2 pos)
+    private void SpawnImpact(Vector2 pos)
     {
-        sparks.transform.position = pos;
-        sparks.transform.rotation = transform.rotation;
-        sparks.GetComponentInChildren<ParticleSystem>().Play();
+        GameObject o = spawnPool.Spawn(pos, _impact);
+        o.transform.rotation = transform.rotation;
     }
 
 
     private void MuzzleFlash()
     {
-        muzzle.GetComponent<Animator>().Play("MuzzleFlash");
+        _muzzle.GetComponent<Animator>().Play("MuzzleFlash");
     }
 
 	public void Talk()																																						//plays an random audioclip from clips[]

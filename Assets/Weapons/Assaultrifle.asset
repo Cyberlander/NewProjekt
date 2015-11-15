@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d4752e25590c344b2e4f95b5e9dcec, type: 3}
+  m_Name: Assaultrifle
+  m_EditorClassIdentifier: 
+  _name: Assaultrifle
+  _dmg: 15
+  _spread: 5
+  _shootSpread: 1
+  _projectileCount: 1
+  _clipSize: 30
+  _firerate: .100000001
+  _graphic: {fileID: 0}
+  _shotSound: {fileID: 0}
