@@ -17,6 +17,9 @@ MonoBehaviour:
   _shootSpread: 1
   _projectileCount: 1
   _clipSize: 30
+  _ammoInClip: 30
+  _ammo: 90
   _firerate: .100000001
+  _reloadTime: 3
   _graphic: {fileID: 0}
   _shotSound: {fileID: 0}

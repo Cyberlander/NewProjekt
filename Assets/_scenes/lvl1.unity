@@ -603,7 +603,7 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 8884aae4af261ce4692129c2fe013e23, type: 3}
   - {fileID: 8300000, guid: 8113a01e356229c4baf704953518e42f, type: 3}
-  _weapon: {fileID: 11400000, guid: e5d8938e17135b94d99eadbed4d28ba3, type: 2}
+  _weapon: {fileID: 11400000, guid: 4c5ae4927997f46479ed7e9b5df1302a, type: 2}
   spawnPool: {fileID: 840836909}
   enemy1: {fileID: 123732, guid: 1507795d08b89454b9fe3ed0d4249fcb, type: 2}
   canHit:

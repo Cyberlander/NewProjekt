@@ -76,21 +76,29 @@ public class PlayerControllerScript : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time > (lastShotTime + _weapon._firerate))
         {
             ShootWeapon();
-			lastShotTime = Time.time;
-            
+			lastShotTime = Time.time;       
+        }
+        if (Input.GetButtonDown("Reload"))
+        {
+            _weapon.Reload();
+            lastShotTime += _weapon._reloadTime;
         }
     }
 
 
     void ShootWeapon()
     {
-        shotgunAus.clip = _weapon._shotSound;
-        shotgunAus.Play();
-        for (int i = 0; i < _weapon._projectileCount; i++)
+        if (_weapon._ammoInClip > 0)
         {
-            Fire(mousePosition, mouseDirection, spread, _weapon._dmg);
+            shotgunAus.clip = _weapon._shotSound;
+            shotgunAus.Play();
+            _weapon._ammoInClip--;
+            for (int i = 0; i < _weapon._projectileCount; i++)
+            {
+                Fire(mousePosition, mouseDirection, spread, _weapon._dmg);
+            }
+            CalculateSpread(_weapon._shootSpread);
         }
-        CalculateSpread(_weapon._shootSpread);
     }
 
     

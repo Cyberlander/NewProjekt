@@ -14,8 +14,12 @@ MonoBehaviour:
   _name: Shotgun
   _dmg: 10
   _spread: 10
+  _shootSpread: 0
   _projectileCount: 5
-  _clipSize: 10
+  _clipSize: 8
+  _ammoInClip: 8
+  _ammo: 30
   _firerate: 2
+  _reloadTime: 4
   _graphic: {fileID: 0}
   _shotSound: {fileID: 8300000, guid: e5ac851ad47ee9c4a91553438ae31e14, type: 3}
