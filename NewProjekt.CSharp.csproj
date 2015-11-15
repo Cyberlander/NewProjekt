@@ -68,10 +68,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\BloodsplatterScript.cs" />
     <Compile Include="Assets\scripts\CamFollowPlayer.cs" />
-    <Compile Include="Assets\scripts\EnemyInterface.cs" />
     <Compile Include="Assets\scripts\EnemySpawnerScript.cs" />
     <Compile Include="Assets\scripts\GameControllerScript.cs" />
+    <Compile Include="Assets\scripts\Interfaces.cs" />
     <Compile Include="Assets\scripts\MapGeneratorScript.cs" />
     <Compile Include="Assets\scripts\ObjectPool.cs" />
     <Compile Include="Assets\scripts\PeasantScript.cs" />

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class ObjectPool : MonoBehaviour 
 {	
@@ -16,8 +17,8 @@ public class ObjectPool : MonoBehaviour
 
 	public GameObject Spawn (Vector3 pos, GameObject type)
 	{
-		GameObject o = _stash.Find (e => e.GetComponent<Enemy> ().GetType () == type.GetComponent<Enemy> ().GetType ());
-
+		GameObject o = _stash.Find (e => e.GetComponent<ObjectPoolable>().GetType() == type.GetComponent<ObjectPoolable>().GetType());
+        
 		
 		if (o == null) 
 		{
@@ -34,7 +35,8 @@ public class ObjectPool : MonoBehaviour
     private GameObject CreateNewElement(GameObject type)
     {
         GameObject fresh = Instantiate(type);
-        fresh.GetComponent<Enemy>().SetObjectPool(this);
+        if(fresh.GetComponent<ObjectPoolable>() != null)
+            fresh.GetComponent<ObjectPoolable>().SetObjectPool(this);
         _stash.Add(fresh);
         fresh.transform.parent = gameObject.transform;
         fresh.SetActive(false);
@@ -70,6 +72,17 @@ public class ObjectPool : MonoBehaviour
 	{
 		return _spawned.Count;
 	}
+
+    public int GetSpawnedEnemyCount()
+    {
+        int count = 0;
+        foreach (GameObject o in _spawned)
+        {
+            if (o.GetComponent<Enemy>() != null)
+                count++;
+        }
+        return count;
+    }
 
 	void Start()
 	{

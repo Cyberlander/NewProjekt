@@ -74,6 +74,7 @@ public class PlayerControllerScript : MonoBehaviour
 	void Update()
 	{
         CalculateSpread();
+        if(Application.isEditor)
         DrawSpread(spread);
 
         CalculateAimIndicator();
@@ -87,6 +88,8 @@ public class PlayerControllerScript : MonoBehaviour
             spread = baseSpread;
         }
     }
+
+    
 
 
     void CalculateAimIndicator()
@@ -132,14 +135,14 @@ public class PlayerControllerScript : MonoBehaviour
 
     void DrawSpread(float spread)
     {
-        if(mouseDirection.y < 0 && mouseDirection.x < 0)
+        if (mouseDirection.y < 0 && mouseDirection.x < 0)
         {
             Debug.DrawRay(transform.position, new Vector2(Mathf.Sin(Mathf.Asin(mouseDirection.x) + Mathf.Deg2Rad * spread),
                                                             -Mathf.Cos(Mathf.Asin(mouseDirection.x) + Mathf.Deg2Rad * spread)),
                                                             Color.blue, Time.deltaTime);
 
             Debug.DrawRay(transform.position, new Vector2(Mathf.Sin(Mathf.Asin(mouseDirection.x) - Mathf.Deg2Rad * spread),
-                                                          - Mathf.Cos(Mathf.Asin(mouseDirection.x) - Mathf.Deg2Rad * (spread))),
+                                                          -Mathf.Cos(Mathf.Asin(mouseDirection.x) - Mathf.Deg2Rad * (spread))),
                                                             Color.blue, Time.deltaTime);
         }
         else if (mouseDirection.y >= 0)
@@ -202,7 +205,7 @@ public class PlayerControllerScript : MonoBehaviour
 		{
             if (hit.collider.gameObject.CompareTag("enemy"))
             {                                                                   //is the GameObject an enemy?
-                hit.collider.gameObject.GetComponent<Enemy>().Damage(50);
+                hit.collider.gameObject.GetComponent<Enemy>().Damage(50, hit.point);
             }
             else if (hit.collider.gameObject.CompareTag("obstacle"))
             {

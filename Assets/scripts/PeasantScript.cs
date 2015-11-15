@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PeasantScript : MonoBehaviour, Enemy
+public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 {	
 	[SerializeField]
 	private float speed;
@@ -11,6 +11,8 @@ public class PeasantScript : MonoBehaviour, Enemy
 	private GameObject deathAnim;
 	[SerializeField]
 	private AudioClip[] clips;
+    [SerializeField]
+    private GameObject _bloodsplatter;
 
 	private Rigidbody2D rb;
 	private ParticleSystem ps;
@@ -46,9 +48,11 @@ public class PeasantScript : MonoBehaviour, Enemy
         }
     }
 
-	public void Damage(int dmg)
+	public void Damage(int dmg, Vector2 at)
 	{
 		health = health - dmg;
+        GameObject bs = op.Spawn(at, _bloodsplatter);
+        bs.transform.rotation = transform.rotation;
 		if (health <= 0)
 			Die ();
 	}

@@ -84,7 +84,7 @@ public class Wave
 
 	public bool IsWaveActive()
 	{
-		if (op.GetSpawnedObjectCount () > 0)
+		if (op.GetSpawnedEnemyCount () > 0)
 				return true;
 		else if (isActive) 
 		{

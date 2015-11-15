@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class fatPeasantScript : MonoBehaviour, Enemy
+public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 {	
 	[SerializeField]
 	private float speed;
@@ -11,8 +11,10 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 	private GameObject deathAnim;
 	[SerializeField]
 	private AudioClip[] clips;
-	
-	private Rigidbody2D rb;
+    [SerializeField]
+    private GameObject _bloodsplatter;
+
+    private Rigidbody2D rb;
 	private AudioSource aus;
 	private GameObject target;
 	private ObjectPool op;
@@ -41,10 +43,12 @@ public class fatPeasantScript : MonoBehaviour, Enemy
 	}
 	
 
-	public void Damage(int dmg)
+	public void Damage(int dmg, Vector2 at)
 	{
 		health = health - dmg;
-		if (health <= 0)
+        GameObject bs = op.Spawn(at - new Vector2(transform.right.x, transform.right.y) * 0.8f, _bloodsplatter);
+        bs.transform.rotation = transform.rotation;
+        if (health <= 0)
 			Die ();
 	}
 	

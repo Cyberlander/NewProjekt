@@ -157,7 +157,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &279500753
@@ -187,7 +187,7 @@ GameObject:
   - 4: {fileID: 840836910}
   - 114: {fileID: 840836909}
   m_Layer: 0
-  m_Name: EnemyPool
+  m_Name: ObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,8 @@ MonoBehaviour:
   _fillTypes:
   - {fileID: 123732, guid: 1507795d08b89454b9fe3ed0d4249fcb, type: 2}
   - {fileID: 120790, guid: 6330d619efbe7014bb3d804d9fafb54b, type: 2}
-  _fillCount: 0700000003000000
+  - {fileID: 119016, guid: b96c770f080a33a44bf9927965723ba7, type: 2}
+  _fillCount: 070000000300000003000000
 --- !u!4 &840836910
 Transform:
   m_ObjectHideFlags: 0
@@ -353,6 +354,43 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 192406, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
   m_PrefabInternal: {fileID: 1419548879}
+--- !u!120 &2020061346
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020061339}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: .100000001
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 1694498815
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 16777215
+  m_UseWorldSpace: 1
 --- !u!1 &2036277319
 GameObject:
   m_ObjectHideFlags: 0
