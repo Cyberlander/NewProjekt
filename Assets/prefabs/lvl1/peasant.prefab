@@ -226,6 +226,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97cac49246b74274aad00bdd87870e24, type: 3}
   - {fileID: 8300000, guid: 6ec26a9c1a991644da33097181ee6743, type: 3}
   - {fileID: 8300000, guid: b2ab589602f9de840ab1728cdf69e671, type: 3}
+  _bloodsplatter: {fileID: 119016, guid: b96c770f080a33a44bf9927965723ba7, type: 2}
 --- !u!198 &19897988
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1442,6 +1443,10 @@ Prefab:
       propertyPath: m_Volume
       value: .300000012
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _bloodsplatter
+      value: 
+      objectReference: {fileID: 119016, guid: b96c770f080a33a44bf9927965723ba7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123732}
