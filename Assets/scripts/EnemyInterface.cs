@@ -10,6 +10,4 @@ public interface Enemy
 	void SetObjectPool(ObjectPool o);
 
 	ObjectPool GetObjectPool();
-
-
 }

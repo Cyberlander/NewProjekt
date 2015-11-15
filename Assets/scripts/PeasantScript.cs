@@ -27,8 +27,6 @@ public class PeasantScript : MonoBehaviour, Enemy
 		health = 50;
 		target = GameObject.FindGameObjectWithTag ("Player");
 	}
-
-
 	
 	void Update () 
 	{
@@ -39,9 +37,14 @@ public class PeasantScript : MonoBehaviour, Enemy
 		ps.startLifetime = 3 / speed;																		// trail independent from the GameObjects speed
 
 
-		if (Vector3.Distance(target.transform.position, transform.position) < 3 && !aus.isPlaying)
+		if (Vector3.Distance(target.transform.position, transform.position) < 4 && !aus.isPlaying)
 			Talk ();
-	}
+
+        if (Vector3.Distance(target.transform.position, transform.position) < 0.6)
+        {
+            Application.LoadLevel("fail");
+        }
+    }
 
 	public void Damage(int dmg)
 	{
@@ -100,7 +103,4 @@ public class PeasantScript : MonoBehaviour, Enemy
         angle -= (float)facing;
         return Quaternion.AngleAxis(angle, Vector3.forward);
     }
-
-
-
 }

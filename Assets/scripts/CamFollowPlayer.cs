@@ -7,7 +7,6 @@ public class CamFollowPlayer : MonoBehaviour
 	private GameObject player;
 	private Rigidbody2D rb;
 
-
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D> ();

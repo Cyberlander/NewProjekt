@@ -49,9 +49,12 @@ public class EnemySpawnerScript : MonoBehaviour
 						case 4:
 							currentWave = new Wave (op, waveEnemys, new int[] {3}, 5, player); 
 							break;
-						default:
-							Debug.Log ("THIS WAS LAST WAVE. STOP PLAY NOW!");
-							break;
+                        case 5:
+                            Debug.Log("THIS WAS LAST WAVE. RESTARTING");
+                            currentWave = null;
+                            break;
+                    default:
+                            break;							
 					}
 			
 				

@@ -31,8 +31,13 @@ public class fatPeasantScript : MonoBehaviour, Enemy
         transform.rotation = FaceObject(transform.position, target.transform.position, FacingDirection.RIGHT);
 		rb.velocity = transform.right * speed;																// lets the GameObjekt move forwards	
 			
-		if (Vector3.Distance(target.transform.position, transform.position) < 3 && !aus.isPlaying)
+		if (Vector3.Distance(target.transform.position, transform.position) < 4 && !aus.isPlaying)
 			Talk ();
+
+        if (Vector3.Distance(target.transform.position, transform.position) < 1)
+        {
+            Application.LoadLevel("fail");
+        }
 	}
 	
 

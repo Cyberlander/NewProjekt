@@ -299,6 +299,14 @@ Prefab:
       propertyPath: canHit.m_Bits
       value: 4294967035
       objectReference: {fileID: 0}
+    - target: {fileID: 11457412, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
+      propertyPath: baseSpread
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457412, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
+      propertyPath: baseSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
   m_IsPrefabParent: 0
