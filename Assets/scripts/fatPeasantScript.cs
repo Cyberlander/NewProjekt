@@ -25,7 +25,7 @@ public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 		rb = GetComponent<Rigidbody2D> ();
 		aus = GetComponent<AudioSource> ();
 		target = GameObject.FindGameObjectWithTag ("Player");
-		health = 100;
+		health = 250;
 	}
 	
 	void Update () 
@@ -55,7 +55,7 @@ public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 	private void Die()
 	{
 		sprite.enabled = false;																				//-
-		health = 100;
+		health = 250;
 		rb.AddTorque (Random.Range (-1, 1));																//randomizes the death animation																
 		deathAnim.GetComponent<Animator> ().Play ("peasantDeathAnim");										//plays the death animation
 		StartCoroutine(DisableIn(0.2f));

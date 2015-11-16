@@ -13,13 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Assaultrifle
   _dmg: 15
-  _spread: 5
+  _baseSpread: 5
+  _minSpread: 5
+  _maxSpread: 30
   _shootSpread: 1
+  _aimSpeed: 0
   _projectileCount: 1
   _clipSize: 30
   _ammoInClip: 30
-  _ammo: 90
-  _firerate: .100000001
-  _reloadTime: 3
+  _ammo: 487
+  _firerate: .150000006
   _graphic: {fileID: 0}
-  _shotSound: {fileID: 0}
+  _shotSound: {fileID: 8300000, guid: a933cfdf517672f469ec8e22a674a888, type: 3}
+  _reloadSound: {fileID: 8300000, guid: cf3ececf9ab05434dbbac4d2c1522020, type: 3}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerControllerScript : MonoBehaviour 
 {
@@ -11,14 +12,12 @@ public class PlayerControllerScript : MonoBehaviour
 	private float _baseSpeed;	
 	[SerializeField]
 	private AudioClip[] clips;
-    [SerializeField]
-    private WeaponObject _weapon;
 
+    public WeaponObject _weapon;
+    
 
 	[SerializeField]
 	private ObjectPool spawnPool;
-	[SerializeField]
-	private GameObject enemy1;
 
     [SerializeField]
     LayerMask canHit = -1;
@@ -29,6 +28,7 @@ public class PlayerControllerScript : MonoBehaviour
 	private Rigidbody2D rb;
 	private Vector3 mousePosition, mouseDirection;
 	private float lastShotTime;
+    private bool _reloading;
     private float spread;
     private float speed;
 	private AudioSource aus;
@@ -43,9 +43,9 @@ public class PlayerControllerScript : MonoBehaviour
 		shotgunAus = _muzzle.GetComponent<AudioSource> ();
         lr = GetComponent<LineRenderer>();
 		lastShotTime = Time.time;
-        spread = _weapon._spread;
+        spread = _weapon._baseSpread;
         speed = _baseSpeed;
-	}
+    }
 
 	void FixedUpdate()
 	{
@@ -73,15 +73,27 @@ public class PlayerControllerScript : MonoBehaviour
 
         CalculateAimIndicator();
 
-        if (Input.GetButton("Fire1") && Time.time > (lastShotTime + _weapon._firerate))
+        if (Input.GetButton("Fire1") && Time.time > (lastShotTime + _weapon._firerate) && ! _reloading)
         {
+            if (!shotgunAus.isPlaying)
+            {
+                shotgunAus.clip = _weapon._shotSound;
+            }
             ShootWeapon();
-			lastShotTime = Time.time;       
+			lastShotTime = Time.time;
         }
         if (Input.GetButtonDown("Reload"))
         {
-            _weapon.Reload();
-            lastShotTime += _weapon._reloadTime;
+            if (_weapon.Reload())
+            {
+                _reloading = true;
+                shotgunAus.clip = _weapon._reloadSound;
+                shotgunAus.Play();
+            }
+        }
+        if(shotgunAus.clip == _weapon._reloadSound && !shotgunAus.isPlaying)
+        {
+            _reloading = false;
         }
     }
 
@@ -90,7 +102,6 @@ public class PlayerControllerScript : MonoBehaviour
     {
         if (_weapon._ammoInClip > 0)
         {
-            shotgunAus.clip = _weapon._shotSound;
             shotgunAus.Play();
             _weapon._ammoInClip--;
             for (int i = 0; i < _weapon._projectileCount; i++)
@@ -127,22 +138,29 @@ public class PlayerControllerScript : MonoBehaviour
     void CalculateSpread()
     {
 
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2") && _weapon._baseSpread > _weapon._minSpread)
         {
             speed = _baseSpeed / 2;
-            if (spread >= 2f)
-                spread = spread - (3.5f * Time.deltaTime);
+            if (spread >= _weapon._minSpread)
+                spread = spread - (_weapon._aimSpeed * Time.deltaTime);          
         }
         else if (!Input.GetButton("Fire1"))
         {
-            spread = _weapon._spread;
+            spread = _weapon._baseSpread;
             speed = _baseSpeed;
         }
     }
 
     void CalculateSpread(float addSpread)
     {
-        spread += addSpread;
+        if (spread < _weapon._maxSpread)
+        {
+            spread += addSpread;
+        }
+        if (spread < _weapon._baseSpread)
+        {
+            spread = _weapon._baseSpread;
+        }
     }
 
 

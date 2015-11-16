@@ -13,13 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Hunting Rifle
   _dmg: 100
-  _spread: 2
+  _baseSpread: 30
+  _minSpread: 2
+  _maxSpread: 30
   _shootSpread: 0
+  _aimSpeed: 10
   _projectileCount: 1
   _clipSize: 5
-  _ammoInClip: 5
-  _ammo: 20
-  _firerate: 3
-  _reloadTime: 3.5
+  _ammoInClip: 0
+  _ammo: 0
+  _firerate: 2.5999999
   _graphic: {fileID: 0}
-  _shotSound: {fileID: 0}
+  _shotSound: {fileID: 8300000, guid: f04cfdeb73c039648a32f012fb04dafc, type: 3}
+  _reloadSound: {fileID: 8300000, guid: cf3ececf9ab05434dbbac4d2c1522020, type: 3}

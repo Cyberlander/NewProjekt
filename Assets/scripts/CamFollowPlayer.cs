@@ -3,17 +3,18 @@ using System.Collections;
 
 public class CamFollowPlayer : MonoBehaviour 
 {	
-	[SerializeField]
-	private GameObject player;
-	private Rigidbody2D rb;
+	
+	private GameObject _player;
+	private Rigidbody2D _rb;
 
 	void Start()
 	{
-		rb = GetComponent<Rigidbody2D> ();
+        _player = GameObject.FindGameObjectWithTag("Player");
+		_rb = GetComponent<Rigidbody2D> ();
 	}
 
 	void Update () 
 	{
-		rb.velocity =  (player.transform.position - transform.position);
+		_rb.velocity =  (_player.transform.position - transform.position);
 	}
 }

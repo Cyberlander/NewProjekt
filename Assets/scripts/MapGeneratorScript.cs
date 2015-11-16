@@ -26,7 +26,7 @@ public class MapGeneratorScript : MonoBehaviour
 	GameObject _fenceContainer;
 	List<GameObject> _existingObstacles;
 
-	void Start () 
+	void Awake () 
 	{
 		_obstacleContainer = new GameObject ("Obstacles");
 		_fenceContainer = new GameObject ("Fence");

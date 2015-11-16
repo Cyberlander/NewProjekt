@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   _name: Shotgun
-  _dmg: 10
-  _spread: 10
+  _dmg: 20
+  _baseSpread: 10
+  _minSpread: 10
+  _maxSpread: 10
   _shootSpread: 0
+  _aimSpeed: 0
   _projectileCount: 5
-  _clipSize: 8
-  _ammoInClip: 8
-  _ammo: 30
+  _clipSize: 7
+  _ammoInClip: 0
+  _ammo: 0
   _firerate: 2
-  _reloadTime: 4
   _graphic: {fileID: 0}
   _shotSound: {fileID: 8300000, guid: e5ac851ad47ee9c4a91553438ae31e14, type: 3}
+  _reloadSound: {fileID: 8300000, guid: 9d2555e7c05bb26498fd9a60fe5011ca, type: 3}
