@@ -25,7 +25,7 @@ public class PlayerControllerScript : MonoBehaviour
 
 
 
-	private Rigidbody2D rb;
+	private Rigidbody rb;
 	private Vector3 mousePosition, mouseDirection;
 	private float lastShotTime;
     private bool _reloading;
@@ -38,7 +38,7 @@ public class PlayerControllerScript : MonoBehaviour
 
 	void Start()
 	{
-		rb = GetComponent<Rigidbody2D> ();
+		rb = GetComponent<Rigidbody> ();
 		aus = GetComponent<AudioSource> ();
 		shotgunAus = _muzzle.GetComponent<AudioSource> ();
         lr = GetComponent<LineRenderer>();
@@ -49,27 +49,26 @@ public class PlayerControllerScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		mousePosition = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs (Camera.main.transform.position.z))); 	//Calculates the position of the mouse in WorldSpace (1)
-		mouseDirection = Vector3.Normalize(mousePosition - transform.position);																						//Calculates the vector between the mouse and the player object
-
-
-		float xAxis =Input.GetAxis ("Horizontal");
-		float yAxis =Input.GetAxis ("Vertical");
-
-		Vector2 movementDir = new Vector2 (xAxis, yAxis);																				
-
-		rb.velocity = movementDir.normalized * speed;                                                                                                               //sets the movement of the player
-
-
-        transform.rotation = FaceObject(transform.position, mousePosition, FacingDirection.RIGHT);
-
-	}
+		mousePosition = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs (Camera.main.transform.position.y))); 	//Calculates the position of the mouse in WorldSpace (1)
+		mouseDirection = Vector3.Normalize(mousePosition - rb.position);																						//Calculates the vector between the mouse and the player object		
+        rb.velocity = Vector3.zero;
+		Vector3 movementDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+                                                                                                                                                                    //sets the movement of the player            
+        transform.Translate(movementDir * Time.fixedDeltaTime * speed, Space.World);
+        rb.position = new Vector3
+        (
+            rb.position.x,
+            0.0f,
+            rb.position.z
+        );
+        transform.LookAt(mousePosition);          
+    }
 
 	void Update()
 	{
         CalculateSpread();
-        if(Application.isEditor)
-        DrawSpread(spread);
+        
+        //DrawSpread(spread);
 
         CalculateAimIndicator();
 
@@ -96,7 +95,7 @@ public class PlayerControllerScript : MonoBehaviour
             _reloading = false;
         }
     }
-
+    
 
     void ShootWeapon()
     {
@@ -117,8 +116,8 @@ public class PlayerControllerScript : MonoBehaviour
 
     void CalculateAimIndicator()
     {
-        Vector2 pos;
-        if (Vector2.Distance(transform.position, mousePosition) < 3.5f)
+        Vector3 pos;
+        if (Vector3.Distance(transform.position, mousePosition) < 3.5f)
         {
             pos = transform.position + mouseDirection * 3.5f;
         }
@@ -128,8 +127,8 @@ public class PlayerControllerScript : MonoBehaviour
         }
 
         float width;
-        width = Mathf.Tan(Mathf.Deg2Rad * (spread/2f)) * Vector2.Distance(transform.position, pos) * 4f;
-        lr.SetPosition(0, transform.position + (transform.right * 1f));
+        width = Mathf.Tan(Mathf.Deg2Rad * (spread/2f)) * Vector3.Distance(rb.transform.position, pos) * 4f;
+        lr.SetPosition(0, transform.position + (transform.forward * 1f));
         lr.SetPosition(1, pos);
         lr.SetWidth(Mathf.Tan(Mathf.Deg2Rad * (spread / 2f)) * 4f, width);
     }
@@ -164,76 +163,25 @@ public class PlayerControllerScript : MonoBehaviour
     }
 
 
-
-
     void DrawSpread(float spread)
     {
-        if (mouseDirection.y < 0 && mouseDirection.x < 0)
-        {
-            Debug.DrawRay(transform.position, new Vector2(Mathf.Sin(Mathf.Asin(mouseDirection.x) + Mathf.Deg2Rad * spread),
-                                                            -Mathf.Cos(Mathf.Asin(mouseDirection.x) + Mathf.Deg2Rad * spread)),
-                                                            Color.blue, Time.deltaTime);
-
-            Debug.DrawRay(transform.position, new Vector2(Mathf.Sin(Mathf.Asin(mouseDirection.x) - Mathf.Deg2Rad * spread),
-                                                          -Mathf.Cos(Mathf.Asin(mouseDirection.x) - Mathf.Deg2Rad * (spread))),
-                                                            Color.blue, Time.deltaTime);
-        }
-        else if (mouseDirection.y >= 0)
-        {
-            Debug.DrawRay(transform.position, new Vector2(Mathf.Cos(Mathf.Acos(mouseDirection.x) + Mathf.Deg2Rad * spread),
-                                                            Mathf.Sin(Mathf.Acos(mouseDirection.x) + Mathf.Deg2Rad * spread)),
-                                                            Color.blue, Time.deltaTime);
-
-            Debug.DrawRay(transform.position, new Vector2(Mathf.Cos(Mathf.Acos(mouseDirection.x) - Mathf.Deg2Rad * spread),
-                                                            Mathf.Sin(Mathf.Acos(mouseDirection.x) - Mathf.Deg2Rad * spread)),
-                                                            Color.blue, Time.deltaTime);
-        }
-
-        else
-        {
-            Debug.DrawRay(transform.position, new Vector2(Mathf.Sin(Mathf.Acos(mouseDirection.y) + Mathf.Deg2Rad * spread),
-                                                            Mathf.Cos(Mathf.Acos(mouseDirection.y) + Mathf.Deg2Rad * spread)),
-                                                            Color.blue, Time.deltaTime);
-
-            Debug.DrawRay(transform.position, new Vector2(Mathf.Sin(Mathf.Acos(mouseDirection.y) - Mathf.Deg2Rad * spread),
-                                                            Mathf.Cos(Mathf.Acos(mouseDirection.y) - Mathf.Deg2Rad * spread)),
-                                                            Color.blue, Time.deltaTime);
-        }
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(spread, Vector3.up) * mouseDirection, Color.blue, Time.deltaTime);
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(-spread, Vector3.up) * mouseDirection, Color.blue, Time.deltaTime);
     }
 
-    Vector2 CalculateSpreadVector(Vector2 lead,float spread)
+
+
+    Vector3 CalculateSpreadVector(Vector3 lead,float spread)
     {
-        if (lead.y < 0 && lead.x < 0)
-        {
-            return new Vector2(Random.Range(Mathf.Sin(Mathf.Asin(lead.x) + Mathf.Deg2Rad * spread),
-                                            Mathf.Sin(Mathf.Asin(lead.x) - Mathf.Deg2Rad * spread)),
-                               Random.Range(-Mathf.Cos(Mathf.Asin(lead.x) + Mathf.Deg2Rad * spread),
-                                            -Mathf.Cos(Mathf.Asin(lead.x) - Mathf.Deg2Rad * spread)));
-        }
-        else if (lead.y >= 0)
-        {
-            return new Vector2(Random.Range(Mathf.Cos(Mathf.Acos(mouseDirection.x) + Mathf.Deg2Rad * spread),
-                                            Mathf.Cos(Mathf.Acos(mouseDirection.x) - Mathf.Deg2Rad * spread)),
-                               Random.Range(Mathf.Sin(Mathf.Acos(mouseDirection.x) + Mathf.Deg2Rad * spread),
-                                            Mathf.Sin(Mathf.Acos(mouseDirection.x) - Mathf.Deg2Rad * spread)));
-
-
-        }
-
-        else
-        {
-            return new Vector2(Random.Range(Mathf.Sin(Mathf.Acos(mouseDirection.y) + Mathf.Deg2Rad * spread),
-                                            Mathf.Sin(Mathf.Acos(mouseDirection.y) - Mathf.Deg2Rad * spread)),
-                               Random.Range(Mathf.Cos(Mathf.Acos(mouseDirection.y) + Mathf.Deg2Rad * spread),
-                                            Mathf.Cos(Mathf.Acos(mouseDirection.y) - Mathf.Deg2Rad * spread)));
-        }
+        return Quaternion.AngleAxis(Random.Range(-spread, spread), Vector3.up) * lead;
     }
 
 
 	void Fire(Vector3 target, Vector3 targetDir, float spread, int dmg)																												//we nee a coroutine because you can't
-	{																																			//delay in Update
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, CalculateSpreadVector(targetDir, spread), 100, canHit);                                                                                   //this Raycast determits if the player has hit an GameObject
-        Debug.DrawLine(transform.position, hit.point, Color.red, 1.5f);
+	{                                                                                                                                           //delay in Update
+        RaycastHit hit;
+        Physics.Raycast(rb.position, CalculateSpreadVector(targetDir, spread), out hit, 100, canHit);                                                                                   //this Raycast determits if the player has hit an GameObject
+        //Debug.DrawLine(rb.position, hit.point, Color.red, 1.5f);
         if (hit.collider != null) 
 		{
             if (hit.collider.gameObject.CompareTag("enemy"))
@@ -255,10 +203,10 @@ public class PlayerControllerScript : MonoBehaviour
 	}
 
 
-    private void SpawnImpact(Vector2 pos)
+    private void SpawnImpact(Vector3 pos)
     {
         GameObject o = spawnPool.Spawn(pos, _impact);
-        o.transform.rotation = transform.rotation;
+        o.transform.rotation = rb.rotation;
     }
 
 

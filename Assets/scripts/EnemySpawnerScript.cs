@@ -117,11 +117,11 @@ public class Wave
 
 	private Vector3 getSpawnPos()
 	{
-			Vector3 pos = new Vector3 (Random.Range (-MAP_WIDTH/2 + 1.5f, MAP_WIDTH/2 - 1.5f), Random.Range (-MAP_HEIGHT/2 + 1.5f, MAP_HEIGHT/2 - 1.5f), 0);
+			Vector3 pos = new Vector3 (Random.Range (-MAP_WIDTH/2 + 1.5f, MAP_WIDTH/2 - 1.5f), 0, Random.Range(-MAP_HEIGHT / 2 + 1.5f, MAP_HEIGHT / 2 - 1.5f));
 
-		while (Vector3.Distance(pos, player.transform.position) < 10) 
+		while (Vector3.Distance(pos, player.GetComponent<Rigidbody>().position) < 10) 
 		{
-				pos = new Vector3 (Random.Range (-MAP_WIDTH/2 + 1.5f, MAP_WIDTH/2 - 1.5f), Random.Range (-MAP_HEIGHT/2 + 1.5f, MAP_HEIGHT/2 - 1.5f), 0);
+				pos = new Vector3 (Random.Range (-MAP_WIDTH/2 + 1.5f, MAP_WIDTH/2 - 1.5f), 0, Random.Range(-MAP_HEIGHT / 2 + 1.5f, MAP_HEIGHT / 2 - 1.5f));
 		}
 		return pos;	
 	}

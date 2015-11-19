@@ -1,0 +1,91 @@
+Initialize engine version: 5.2.2f1 (3757309da7e7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 770 (ID=0x1184)
+    Vendor:   NVIDIA
+    VRAM:     1990 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\unity\NewProjekt\Builds\demo3_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo3_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo3_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo3_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo3_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo3_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo3_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\unity\NewProjekt\Builds\demo3_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\unity\NewProjekt\Builds\demo3_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.032 seconds
+desktop: 1920x1080 60Hz; virtual: 2944x1080 at -1024,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\unity\NewProjekt\Builds\demo3_Data\Managed\System.dll (this message is harmless)
+GI: material does not have Meta pass, and could not find default material. Object will not be affecting GI.
+GI: material does not have Meta pass, and could not find default material. Object will not be affecting GI.
+GI: material does not have Meta pass, and could not find default material. Object will not be affecting GI.
+GI: material does not have Meta pass, and could not find default material. Object will not be affecting GI.
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1fe8 -> priority: 1 
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+THIS WAS LAST WAVE. RESTARTING
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unexpected target was hit. Expect police investigations. We will take no responsibility.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.694435 ms
+
+Unloading 147 unused Assets to reduce memory usage. Loaded Objects now: 190.
+Total: 0.311531 ms (FindLiveObjects: 0.040032 ms CreateObjectMapping: 0.011136 ms MarkObjects: 0.115883 ms  DeleteObjects: 0.144177 ms)
+

@@ -5,16 +5,16 @@ public class CamFollowPlayer : MonoBehaviour
 {	
 	
 	private GameObject _player;
-	private Rigidbody2D _rb;
+	private Rigidbody _rb;
 
 	void Start()
 	{
         _player = GameObject.FindGameObjectWithTag("Player");
-		_rb = GetComponent<Rigidbody2D> ();
+		_rb = GetComponent<Rigidbody> ();
 	}
 
 	void Update () 
 	{
-		_rb.velocity =  (_player.transform.position - transform.position);
+		_rb.velocity =  _player.transform.position - transform.position;
 	}
 }

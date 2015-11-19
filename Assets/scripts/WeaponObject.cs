@@ -21,6 +21,11 @@ public class WeaponObject : ScriptableObject
     public AudioClip _shotSound;
     public AudioClip _reloadSound;
 
+    void OnEnable()
+    {
+        _ammo = Mathf.Ceil(_ammo);
+    }
+
     public bool Reload()
     {
         if (_ammo == 0 || _ammoInClip == _clipSize)
@@ -30,8 +35,8 @@ public class WeaponObject : ScriptableObject
         else
         {
             float remainingAmmo = Mathf.Clamp(_ammo - (_clipSize - _ammoInClip), 0, _ammo);
-            _ammoInClip = Mathf.Clamp(_ammo + _ammoInClip, 0, _clipSize);
-            _ammo = remainingAmmo;
+            _ammoInClip = Mathf.Ceil(Mathf.Clamp(_ammo + _ammoInClip, 0, _clipSize));
+            _ammo = Mathf.Ceil(remainingAmmo);
             return true;
         }
     }

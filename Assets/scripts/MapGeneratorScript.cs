@@ -58,25 +58,25 @@ public class MapGeneratorScript : MonoBehaviour
 		List<GameObject> completeFence = new List<GameObject> ();
 		for (int i = 1; i < MAP_HEIGHT - 1; i+=2) 
 		{
-			GameObject f = (GameObject) Instantiate (fence, new Vector3(-MAP_WIDTH/2 + 1, -MAP_HEIGHT/2 + i, 0), Quaternion.identity);
+			GameObject f = (GameObject) Instantiate (fence, new Vector3(-MAP_WIDTH/2 + 1, 0, -MAP_HEIGHT / 2 + i), Quaternion.identity);
 			f.transform.SetParent(_fenceContainer.transform);
 			completeFence.Add(f);
 		}
 		for (int i = 1; i < MAP_HEIGHT - 1; i+=2) 
 		{
-			GameObject f = (GameObject) Instantiate (fence, new Vector3(MAP_WIDTH/2 - 1, -MAP_HEIGHT/2 + i, 0), Quaternion.identity);
+			GameObject f = (GameObject) Instantiate (fence, new Vector3(MAP_WIDTH/2 - 1, 0, -MAP_HEIGHT / 2 + i), Quaternion.identity);
 			f.transform.SetParent(_fenceContainer.transform);
 			completeFence.Add(f);
 		}
 		for (int i = 1; i < MAP_WIDTH - 1; i+=2) 
 		{
-			GameObject f = (GameObject) Instantiate (fence, new Vector3(-MAP_WIDTH/2 + i,MAP_HEIGHT/2 - 1, 0), Quaternion.Euler(new Vector3(0,0,270)));
+			GameObject f = (GameObject) Instantiate (fence, new Vector3(-MAP_WIDTH/2 + i + 2, 0, MAP_HEIGHT / 2 - 1), Quaternion.Euler(new Vector3(0, 270, 0)));
 			f.transform.SetParent(_fenceContainer.transform);
 			completeFence.Add(f);
 		}
 		for (int i = 1; i < MAP_WIDTH - 1; i+=2) 
 		{
-			GameObject f = (GameObject) Instantiate (fence, new Vector3(-MAP_WIDTH/2 + i,-MAP_HEIGHT/2 + 1, 0), Quaternion.Euler(new Vector3(0,0,270)));
+			GameObject f = (GameObject) Instantiate (fence, new Vector3(-MAP_WIDTH/2 + i + 2, 0, -MAP_HEIGHT / 2 + 1), Quaternion.Euler(new Vector3(0, 270, 0)));
 			f.transform.SetParent(_fenceContainer.transform);
 			completeFence.Add(f);
 		}
@@ -87,12 +87,13 @@ public class MapGeneratorScript : MonoBehaviour
 	private Vector3 generateObstaclePosition(List<GameObject> existingObstacles)
 	{
 		Vector3 pos = new Vector3 (
-			Random.Range (-MAP_WIDTH / 2 +1, MAP_WIDTH / 2 -1),
-			Random.Range (-MAP_HEIGHT / 2 +1, MAP_HEIGHT / 2 - 1),
-			0);
+			Random.Range (-MAP_WIDTH / 2 + 1, MAP_WIDTH / 2 -1),
+            0,
+			Random.Range (-MAP_HEIGHT / 2 + 1, MAP_HEIGHT / 2 - 1)
+			);
 		foreach (GameObject o in existingObstacles) 
 		{
-			if(Vector2.Distance(pos, o.transform.position) < _minObstacleDistance)
+			if(Vector3.Distance(pos, o.transform.position) < _minObstacleDistance)
 				pos = generateObstaclePosition(existingObstacles);
 		}
 
