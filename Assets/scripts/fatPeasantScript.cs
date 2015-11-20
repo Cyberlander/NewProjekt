@@ -21,14 +21,14 @@ public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 	private ObjectPool _op;
 	private int health;
     private NavMeshAgent _nma;
-	
-	void Start () 
+
+    void Start () 
 	{
 		aus = GetComponent<AudioSource> ();
 		target = GameObject.FindGameObjectWithTag ("Player");
         _nma = GetComponent<NavMeshAgent>();
 		health = 250;
-	}
+    }
 	
 	void Update () 
 	{
@@ -63,11 +63,11 @@ public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
     }
 
 
-    public void Damage(int dmg, Vector3 at)
+    public void Damage(int dmg, Vector3 at, Vector3 from)
 	{
 		health = health - dmg;
-        GameObject bs = _op.Spawn(at - new Vector3(transform.right.x, transform.right.y) * 0.8f, _bloodsplatter);
-        bs.transform.rotation = transform.rotation;
+        GameObject bs = _op.Spawn(at + from * 1.4f, _bloodsplatter);
+        bs.transform.rotation = FaceObject(-from, FacingDirection.RIGHT);
         if (health <= 0)
 			Die ();
 	}
@@ -104,5 +104,20 @@ public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 		aus.clip = clips [Random.Range (0, clips.Length)];
 		aus.Play ();
 	}
+
+    private enum FacingDirection
+    {
+        UP = 270,
+        DOWN = 90,
+        LEFT = 180,
+        RIGHT = 0
+    }
+
+    private static Quaternion FaceObject(Vector3 direction, FacingDirection facing)
+    {
+        float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        angle -= (float)facing;
+        return Quaternion.AngleAxis(angle, Vector3.up);
+    }
 
 }

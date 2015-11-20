@@ -25,6 +25,7 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 	private ObjectPool _op;
 	private int health;
     private NavMeshAgent _nma;
+ 
 
 	void Awake () 
 	{
@@ -44,7 +45,6 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
         //ShowPath(_nma.path);                                                                                                   // lets the GameObjekt move forwards	
         ps.emissionRate = 10 * speed;																		// dynamic adaption of the Particlesystem's parameters to make the length and look of -->
 		ps.startLifetime = 3 / speed;																		// trail independent from the GameObjects speed
-
 		
 
         if (Vector3.Distance(_targetRB.position, transform.position) < 0.6)
@@ -77,7 +77,6 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
     {
         
         _nma.SetDestination(t.transform.position);
-        _nma.speed = speed;
     }
 
     private void ShowPath(NavMeshPath path)
@@ -91,12 +90,12 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
         
     }
 
-	public void Damage(int dmg, Vector3 at)
+	public void Damage(int dmg, Vector3 at, Vector3 from)
 	{
 		health = health - dmg;
-        GameObject bs = _op.Spawn(at, _bloodsplatter);
-        bs.transform.rotation = transform.rotation;
-		if (health <= 0)
+        GameObject bs = _op.Spawn(at + from * 0.1f, _bloodsplatter);
+        bs.transform.rotation = FaceObject(-from, FacingDirection.RIGHT);
+        if (health <= 0)
 			Die ();
 	}
 
@@ -134,4 +133,20 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 			aus.clip = clips [Random.Range (0, clips.Length)];
 			aus.Play ();
 	}
+
+
+    private enum FacingDirection
+    {
+        UP = 270,
+        DOWN = 90,
+        LEFT = 180,
+        RIGHT = 0
+    }
+
+    private static Quaternion FaceObject(Vector3 direction, FacingDirection facing)
+    {
+        float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        angle -= (float)facing;
+        return Quaternion.AngleAxis(angle, Vector3.up);
+    }
 }

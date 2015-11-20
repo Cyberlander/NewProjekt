@@ -16,7 +16,10 @@
    id="svg4511"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="shotgun.svg">
+   sodipodi:docname="shotgun.svg"
+   inkscape:export-filename="D:\unity\NewProjekt\Assets\textures\shotgun.png"
+   inkscape:export-xdpi="95"
+   inkscape:export-ydpi="95">
   <defs
      id="defs4513">
     <linearGradient
@@ -288,9 +291,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.32599711"
-     inkscape:cx="389.87631"
-     inkscape:cy="563.8189"
+     inkscape:zoom="0.46102953"
+     inkscape:cx="271.78965"
+     inkscape:cy="446.63561"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -307,7 +310,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
