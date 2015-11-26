@@ -23,6 +23,6 @@ MonoBehaviour:
   _ammoInClip: 3
   _ammo: 45
   _firerate: 2
-  _graphic: {fileID: 0}
+  _graphic: {fileID: 21300002, guid: 601e855dd23ea7346a508f380bffdad0, type: 3}
   _shotSound: {fileID: 8300000, guid: e5ac851ad47ee9c4a91553438ae31e14, type: 3}
   _reloadSound: {fileID: 8300000, guid: 9d2555e7c05bb26498fd9a60fe5011ca, type: 3}

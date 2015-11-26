@@ -18,7 +18,7 @@ public class WeaponDisplayScript : MonoBehaviour
 
     void Update()
     {
-        _ammoText.text = _player.GetComponent<PlayerControllerScript>()._weapon._ammoInClip + " / " + _player.GetComponent<PlayerControllerScript>()._weapon._ammo;
-        _weaponTypeText.text = _player.GetComponent<PlayerControllerScript>()._weapon._name;
+        _ammoText.text = _player.GetComponent<PlayerControllerScript>().GetCurrentWeapon()._ammoInClip + " / " + _player.GetComponent<PlayerControllerScript>().GetCurrentWeapon()._ammo;
+        _weaponTypeText.text = _player.GetComponent<PlayerControllerScript>().GetCurrentWeapon()._name;
     }
 }

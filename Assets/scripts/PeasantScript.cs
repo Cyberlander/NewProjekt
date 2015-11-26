@@ -55,9 +55,8 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 
     private void CalculateBehaviour()
     {       
-            Follow(target);
-        
-
+        Follow(target);
+              
         if (Vector3.Distance(transform.position, _targetRB.position) < _viewRange)
         {
             _nma.speed = speed * 2;

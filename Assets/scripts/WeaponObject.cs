@@ -17,7 +17,6 @@ public class WeaponObject : ScriptableObject
     public float _ammoInClip = 10;
     public float _ammo = 50;
     public float _firerate = 2f;
-    public Sprite _graphic;
     public AudioClip _shotSound;
     public AudioClip _reloadSound;
 

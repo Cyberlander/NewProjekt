@@ -12,8 +12,12 @@ public class PlayerControllerScript : MonoBehaviour
 	private float _baseSpeed;	
 	[SerializeField]
 	private AudioClip[] clips;
+    [SerializeField]
+    private WeaponObject[] _weaponInventory;
 
-    public WeaponObject _weapon;
+    public int _weapon;
+
+
     
 
 	[SerializeField]
@@ -43,7 +47,7 @@ public class PlayerControllerScript : MonoBehaviour
 		shotgunAus = _muzzle.GetComponent<AudioSource> ();
         lr = GetComponent<LineRenderer>();
 		lastShotTime = Time.time;
-        spread = _weapon._baseSpread;
+        spread = _weaponInventory[_weapon]._baseSpread;
         speed = _baseSpeed;       
     }
 
@@ -68,45 +72,71 @@ public class PlayerControllerScript : MonoBehaviour
 
         CalculateAimIndicator();
 
-        if (Input.GetButton("Fire1") && Time.time > (lastShotTime + _weapon._firerate) && ! _reloading)
+        if (Input.GetButton("Fire1") && Time.time > (lastShotTime + _weaponInventory[_weapon]._firerate) && ! _reloading)
         {
             if (!shotgunAus.isPlaying)
             {
-                shotgunAus.clip = _weapon._shotSound;
+                shotgunAus.clip = _weaponInventory[_weapon]._shotSound;
             }
             ShootWeapon();
 			lastShotTime = Time.time;
         }
         if (Input.GetButtonDown("Reload"))
         {
-            if (_weapon.Reload())
+            if (_weaponInventory[_weapon].Reload())
             {
                 _reloading = true;
-                shotgunAus.clip = _weapon._reloadSound;
+                shotgunAus.clip = _weaponInventory[_weapon]._reloadSound;
                 shotgunAus.Play();
             }
         }
-        if(shotgunAus.clip == _weapon._reloadSound && !shotgunAus.isPlaying)
+        if(Input.GetButtonDown("1"))
+        {
+            ChangeWeapon(0);
+        }
+        else if (Input.GetButtonDown("2"))
+        {
+            ChangeWeapon(1);
+        }
+        else if (Input.GetButtonDown("3"))
+        {
+            ChangeWeapon(2);
+        }
+        if (shotgunAus.clip == _weaponInventory[_weapon]._reloadSound && !shotgunAus.isPlaying)
         {
             _reloading = false;
         }
     }
+
+
+
     
 
     void ShootWeapon()
     {
-        if (_weapon._ammoInClip > 0)
+        if (_weaponInventory[_weapon]._ammoInClip > 0)
         {
             shotgunAus.Play();
-            _weapon._ammoInClip--;
-            for (int i = 0; i < _weapon._projectileCount; i++)
+            _weaponInventory[_weapon]._ammoInClip--;
+            for (int i = 0; i < _weaponInventory[_weapon]._projectileCount; i++)
             {
-                Fire(mousePosition, mouseDirection, spread, _weapon._dmg);
+                Fire(mousePosition, mouseDirection, spread, _weaponInventory[_weapon]._dmg);
             }
-            CalculateSpread(_weapon._shootSpread);
+            CalculateSpread(_weaponInventory[_weapon]._shootSpread);
         }
     }
 
+    public WeaponObject GetCurrentWeapon()
+    {
+        return _weaponInventory[_weapon];
+    }
+
+    private void ChangeWeapon(int to)
+    {
+        _weapon = to;
+        _muzzle.GetComponent<Animator>().Play(_weaponInventory[_weapon]._name + "Idle");
+        shotgunAus.clip = _weaponInventory[_weapon]._shotSound;
+    }
     
 
 
@@ -133,28 +163,28 @@ public class PlayerControllerScript : MonoBehaviour
     void CalculateSpread()
     {
 
-        if (Input.GetButton("Fire2") && _weapon._baseSpread > _weapon._minSpread)
+        if (Input.GetButton("Fire2") && _weaponInventory[_weapon]._baseSpread > _weaponInventory[_weapon]._minSpread)
         {
             speed = _baseSpeed / 2;
-            if (spread >= _weapon._minSpread)
-                spread = spread - (_weapon._aimSpeed * Time.deltaTime);          
+            if (spread >= _weaponInventory[_weapon]._minSpread)
+                spread = spread - (_weaponInventory[_weapon]._aimSpeed * Time.deltaTime);          
         }
         else if (!Input.GetButton("Fire1"))
         {
-            spread = _weapon._baseSpread;
+            spread = _weaponInventory[_weapon]._baseSpread;
             speed = _baseSpeed;
         }
     }
 
     void CalculateSpread(float addSpread)
     {
-        if (spread < _weapon._maxSpread)
+        if (spread < _weaponInventory[_weapon]._maxSpread)
         {
             spread += addSpread;
         }
-        if (spread < _weapon._baseSpread)
+        if (spread < _weaponInventory[_weapon]._baseSpread)
         {
-            spread = _weapon._baseSpread;
+            spread = _weaponInventory[_weapon]._baseSpread;
         }
     }
 
@@ -208,7 +238,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void MuzzleFlash()
     {
-        _muzzle.GetComponent<Animator>().Play("MuzzleFlash");
+        _muzzle.GetComponent<Animator>().Play(_weaponInventory[_weapon]._name);
     }
 
 	public void Talk()																																						//plays an random audioclip from clips[]

@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 498228}
   - 212: {fileID: 21257138}
-  - 65: {fileID: 6508386}
   m_Layer: 9
   m_Name: body
   m_TagString: obstacle
@@ -25,10 +24,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425010}
-  - 208: {fileID: 20893520}
+  - 208: {fileID: 20871266}
+  - 65: {fileID: 6588356}
   m_Layer: 9
   m_Name: fencePart
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,19 +58,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425010}
   m_RootOrder: 0
---- !u!65 &6508386
+--- !u!65 &6588356
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105218}
+  m_GameObject: {fileID: 178440}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 5, z: 1}
-  m_Center: {x: .110206604, y: 2.50521088, z: -.00468313694}
---- !u!208 &20893520
+  m_Size: {x: .5, y: 1, z: 2}
+  m_Center: {x: .0399999991, y: 0, z: 1}
+--- !u!208 &20871266
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -79,11 +79,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: .25999999, y: 1, z: 1.03999996}
+  m_Extents: {x: .25, y: .5, z: 1}
   m_MoveThreshold: .100000001
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: .0599999987, y: 0, z: 1}
+  m_Center: {x: .0399999991, y: 0, z: 1}
   m_TimeToStationary: .5
 --- !u!212 &21257138
 SpriteRenderer:
@@ -117,7 +117,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178440}

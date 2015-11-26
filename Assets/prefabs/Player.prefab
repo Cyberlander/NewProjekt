@@ -266,7 +266,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 64afd8da06c3e8b42a52f5ce2797d7a1, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -289,7 +289,11 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 8884aae4af261ce4692129c2fe013e23, type: 3}
   - {fileID: 8300000, guid: 8113a01e356229c4baf704953518e42f, type: 3}
-  _weapon: {fileID: 11400000, guid: e5d8938e17135b94d99eadbed4d28ba3, type: 2}
+  _weaponInventory:
+  - {fileID: 11400000, guid: 50e5d8b4481462e439abb120274a43f7, type: 2}
+  - {fileID: 11400000, guid: 4c5ae4927997f46479ed7e9b5df1302a, type: 2}
+  - {fileID: 11400000, guid: e5d8938e17135b94d99eadbed4d28ba3, type: 2}
+  _weapon: 0
   spawnPool: {fileID: 0}
   canHit:
     serializedVersion: 2
