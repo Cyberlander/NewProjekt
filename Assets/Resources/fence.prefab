@@ -41,6 +41,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _length: 1
   _fenceObject: {fileID: 178440, guid: 8e1fb85e2b32add4280c9791d7a330e7, type: 2}
+  _currentLength: 0
+  _fenceParts: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

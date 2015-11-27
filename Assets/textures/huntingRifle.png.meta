@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 2fd8c7d75e71c5d4292a5532580b8283
+timeCreated: 1448627760
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: reload_1
+    21300002: reload_2
+    21300004: reload_3
+    21300006: reload_4
+    21300008: reload_5
+    21300010: reload_6
+    21300012: reload_7
+    21300014: reload_8
+    21300016: reload_9
+    21300018: reload_10
+    21300020: reload_11
+    21300022: reload_12
+    21300024: reload_13
+    21300026: reload_14
+    21300028: reload_15
+    21300030: reload_16
+    21300032: reload_17
+    21300034: reload_18
+    21300036: reload_19
+    21300038: reload_20
+    21300040: 0_base
+    21300042: fire_1
+    21300044: fire_2
+    21300046: fire_3
+    21300048: fire_4
+    21300050: fire_5
+    21300052: fire_6
+    21300054: fire_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: reload_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1726
+        width: 61
+        height: 473
+      alignment: 9
+      pivot: {x: .213656649, y: .0172328185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1726
+        width: 59
+        height: 473
+      alignment: 9
+      pivot: {x: .240914419, y: .0152079482}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1726
+        width: 56
+        height: 473
+      alignment: 9
+      pivot: {x: .227034971, y: .0209111869}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_4
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .250228047, y: .0209111869}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_5
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .233577028, y: .0209111869}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_6
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .283531457, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_7
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .250228316, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_8
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .250228316, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_9
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 1726
+        width: 53
+        height: 473
+      alignment: 9
+      pivot: {x: .245515645, y: .0171089415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_10
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .266879618, y: .0209111869}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_11
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 1724
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .283530921, y: .0171089415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_12
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .266879618, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_13
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 1726
+        width: 54
+        height: 473
+      alignment: 9
+      pivot: {x: .283530921, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_14
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1726
+        width: 76
+        height: 473
+      alignment: 9
+      pivot: {x: .177049339, y: .0209111869}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_15
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1726
+        width: 107
+        height: 473
+      alignment: 9
+      pivot: {x: .130244464, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_16
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 1726
+        width: 126
+        height: 473
+      alignment: 9
+      pivot: {x: .128910124, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_17
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 1726
+        width: 153
+        height: 473
+      alignment: 9
+      pivot: {x: .0944880098, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_18
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 1726
+        width: 55
+        height: 473
+      alignment: 9
+      pivot: {x: .271120369, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_19
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 1726
+        width: 56
+        height: 473
+      alignment: 9
+      pivot: {x: .275205344, y: .0190101936}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: reload_20
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 1726
+        width: 61
+        height: 473
+      alignment: 9
+      pivot: {x: .234669164, y: .0190099347}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 0_base
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 808
+        width: 61
+        height: 473
+      alignment: 9
+      pivot: {x: .21470286, y: .0102678426}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 808
+        width: 182
+        height: 617
+      alignment: 9
+      pivot: {x: .483385533, y: .00980183017}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_2
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 808
+        width: 236
+        height: 681
+      alignment: 9
+      pivot: {x: .471811593, y: .00799255818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_3
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 808
+        width: 354
+        height: 858
+      alignment: 9
+      pivot: {x: .484624475, y: .00634374376}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_4
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 808
+        width: 497
+        height: 797
+      alignment: 9
+      pivot: {x: .445242256, y: .00682927482}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_5
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 808
+        width: 519
+        height: 676
+      alignment: 9
+      pivot: {x: .427753896, y: .0107355965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 42
+        width: 586
+        height: 734
+      alignment: 9
+      pivot: {x: .411039591, y: .0101461075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: fire_7
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 0
+        width: 577
+        height: 798
+      alignment: 9
+      pivot: {x: .407311827, y: .00576512748}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

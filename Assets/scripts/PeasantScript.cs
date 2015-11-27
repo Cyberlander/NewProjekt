@@ -42,7 +42,7 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 	void Update () 
 	{
         CalculateBehaviour();
-        //ShowPath(_nma.path);                                                                                                   // lets the GameObjekt move forwards	
+        ShowPath(_nma.path);                                                                                                   // lets the GameObjekt move forwards	
         ps.emissionRate = 10 * speed;																		// dynamic adaption of the Particlesystem's parameters to make the length and look of -->
 		ps.startLifetime = 3 / speed;																		// trail independent from the GameObjects speed
 		

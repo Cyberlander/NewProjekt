@@ -162,7 +162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &62267071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,6 +732,10 @@ Prefab:
       propertyPath: spawnPool
       value: 
       objectReference: {fileID: 840836909}
+    - target: {fileID: 12060056, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
+      propertyPath: m_Parameters.m_StartColor.rgba
+      value: 855638015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a55322995d22eb48b3255c80c3ee11e, type: 2}
   m_IsPrefabParent: 0

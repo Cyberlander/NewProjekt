@@ -13,16 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Huntingrifle
   _dmg: 100
-  _baseSpread: 30
+  _baseSpread: 15
   _minSpread: 2
-  _maxSpread: 30
+  _maxSpread: 15
   _shootSpread: 0
   _aimSpeed: 10
   _projectileCount: 1
   _clipSize: 5
-  _ammoInClip: 4
-  _ammo: 25
+  _ammoInClip: 3
+  _ammo: 33
   _firerate: 2.5999999
-  _graphic: {fileID: 0}
   _shotSound: {fileID: 8300000, guid: f04cfdeb73c039648a32f012fb04dafc, type: 3}
   _reloadSound: {fileID: 8300000, guid: cf3ececf9ab05434dbbac4d2c1522020, type: 3}

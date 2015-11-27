@@ -24,11 +24,7 @@ public class fenceBuilder : MonoBehaviour
             GameObject o = (GameObject)Instantiate(_fenceObject, transform.position, transform.rotation);
             _fenceParts.Add(o);
             o.transform.parent = gameObject.transform;
-            _currentLength = 1;                    
-            if (_length <= 1)
-            {
-                _length = 1;
-            }
+            _currentLength = 1;                              
         }
         while (_currentLength < _length)
         {
