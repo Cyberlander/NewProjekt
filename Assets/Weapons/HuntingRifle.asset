@@ -20,8 +20,8 @@ MonoBehaviour:
   _aimSpeed: 10
   _projectileCount: 1
   _clipSize: 5
-  _ammoInClip: 3
-  _ammo: 33
+  _ammoInClip: 1
+  _ammo: 187
   _firerate: 2.5999999
   _shotSound: {fileID: 8300000, guid: f04cfdeb73c039648a32f012fb04dafc, type: 3}
   _reloadSound: {fileID: 8300000, guid: cf3ececf9ab05434dbbac4d2c1522020, type: 3}

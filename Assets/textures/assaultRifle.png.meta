@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f850ce36aeee73d4bb668573b514b9d3
-timeCreated: 1448200854
+timeCreated: 1448706173
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,19 +59,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 75
-        height: 355
+        height: 354
       alignment: 9
-      pivot: {x: .295616329, y: .145926759}
+      pivot: {x: .287760735, y: .140933782}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: assaultRifle_1
       rect:
         serializedVersion: 2
         x: 105
-        y: 0
-        width: 119
-        height: 456
+        y: 1
+        width: 117
+        height: 455
       alignment: 9
       pivot: {x: .482824773, y: .107816346}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -79,31 +79,31 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 284
-        y: 0
+        y: 1
         width: 230
-        height: 550
+        height: 549
       alignment: 9
       pivot: {x: .508886158, y: .091232501}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: assaultRifle_3
       rect:
         serializedVersion: 2
-        x: 593
+        x: 647
         y: 0
-        width: 164
+        width: 217
         height: 536
       alignment: 9
-      pivot: {x: .5, y: .0958082676}
+      pivot: {x: .382178515, y: .0952086151}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: assaultRifle_4
       rect:
         serializedVersion: 2
-        x: 876
-        y: 0
-        width: 108
-        height: 440
+        x: 1207
+        y: 1
+        width: 263
+        height: 439
       alignment: 9
-      pivot: {x: .490537852, y: .116780497}
+      pivot: {x: .193985969, y: .112225085}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

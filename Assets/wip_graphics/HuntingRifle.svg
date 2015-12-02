@@ -658,9 +658,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.11088397"
-     inkscape:cx="-1968.638"
-     inkscape:cy="1431.414"
+     inkscape:zoom="0.62725446"
+     inkscape:cx="242.93271"
+     inkscape:cy="527.8854"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -681,7 +681,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1414,7 +1414,7 @@
     </g>
     <g
        id="g4726"
-       transform="translate(-1067.7653,405.56749)"
+       transform="translate(-1062.9826,426.29273)"
        inkscape:export-filename="D:\unity\NewProjekt\Assets\textures\huntingRifle.png"
        inkscape:export-xdpi="170.03999"
        inkscape:export-ydpi="170.03999">

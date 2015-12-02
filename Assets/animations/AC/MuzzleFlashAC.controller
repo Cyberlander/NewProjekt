@@ -205,7 +205,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: AssaultrifleIdle
-  m_Speed: .00999999978
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -275,7 +275,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ShotgunIdle
-  m_Speed: .00999999978
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -334,13 +334,13 @@ AnimatorStateMachine:
     m_Position: {x: 1320, y: -72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110278044}
-    m_Position: {x: 432, y: -84, z: 0}
+    m_Position: {x: 636, y: -72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110252860}
-    m_Position: {x: 432, y: 24, z: 0}
+    m_Position: {x: 636, y: 24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110284500}
-    m_Position: {x: 432, y: -24, z: 0}
+    m_Position: {x: 636, y: -24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110234172}
     m_Position: {x: 888, y: -72, z: 0}
@@ -352,8 +352,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 228, y: -24, z: 0}
-  m_EntryPosition: {x: 228, y: -72, z: 0}
-  m_ExitPosition: {x: 228, y: 24, z: 0}
+  m_AnyStatePosition: {x: 432, y: -24, z: 0}
+  m_EntryPosition: {x: 432, y: -72, z: 0}
+  m_ExitPosition: {x: 432, y: 24, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 110278044}
