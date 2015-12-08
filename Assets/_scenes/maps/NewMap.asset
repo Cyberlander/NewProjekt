@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7e9d59db6f6af4da7a947ac5b41c31, type: 3}
   m_Name: NewMap
   m_EditorClassIdentifier: 
-  _tileCount: 0
+  _tilePos: []
+  _tileType: []

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 {	
@@ -40,7 +41,7 @@ public class fatPeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 
         if (Vector3.Distance(target.transform.position, transform.position) < 1)
         {
-            Application.LoadLevel("fail");
+            SceneManager.LoadScene("fail");
         }
 	}
 

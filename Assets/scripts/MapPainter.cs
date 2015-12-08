@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MapPainter : MonoBehaviour
 {
@@ -11,8 +13,19 @@ public class MapPainter : MonoBehaviour
 
     public int _gridsize = 4;
 
+    public Mesh _mesh;
+
+
+    List<Object> _tileSet;
     private Vector3 _mousePosition;
     private int x, y;
+
+    void Start()
+    {
+        _tileSet = new List<Object>() ;
+        _tileSet.AddRange((Object[]) Resources.LoadAll("tiles/prefabs", typeof(GameObject)));      
+        SetCurrentTile("grass");
+    }
 
     void Update ()
     {
@@ -29,6 +42,31 @@ public class MapPainter : MonoBehaviour
             _map.DeleteTile(new Vector2(x, y));
             _mB.Build();
         }
+        
+    }
+
+    public void SetCurrentTile(string tileName)
+    {
+        foreach (GameObject t in _tileSet)
+        {
+            if(t.name == tileName)
+            {                   
+                _currentTile = t; 
+                return;
+            }
+        }
+        GameObject gObj = new GameObject(tileName);
+        MeshFilter mf = gObj.AddComponent<MeshFilter>();
+        mf.mesh = _mesh;
+        Material mat = new Material(Shader.Find("Unlit/Texture"));
+        mat.mainTexture = (Texture) Resources.Load("tiles/" + tileName);
+        AssetDatabase.CreateAsset(mat, "Assets/materials/BGMaterials/" + tileName + ".asset");
+        MeshRenderer mr = gObj.AddComponent<MeshRenderer>();
+        mr.material = mat; 
+        _tileSet.Add(PrefabUtility.CreatePrefab("Assets/Resources/tiles/prefabs/" + tileName + ".prefab", gObj, ReplacePrefabOptions.ReplaceNameBased));
+        AssetDatabase.SaveAssets();
+        Destroy(gObj);
+        SetCurrentTile(tileName);
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 {	
@@ -43,13 +44,13 @@ public class PeasantScript : MonoBehaviour, Enemy, ObjectPoolable
 	{
         CalculateBehaviour();
         ShowPath(_nma.path);                                                                                                   // lets the GameObjekt move forwards	
-        ps.emissionRate = 10 * speed;																		// dynamic adaption of the Particlesystem's parameters to make the length and look of -->
+        ps.emissionRate   = 10 * speed;																		// dynamic adaption of the Particlesystem's parameters to make the length and look of -->
 		ps.startLifetime = 3 / speed;																		// trail independent from the GameObjects speed
 		
 
         if (Vector3.Distance(_targetRB.position, transform.position) < 0.6)
         {
-            Application.LoadLevel("fail");
+            SceneManager.LoadScene("fail");
         }
     }
 
